@@ -8,7 +8,18 @@ numberOfCoffees = int.Parse(Console.ReadLine());
 
 Console.Write("Would you like sugar in your coffee? (y/n): ");
 char sugarResponse = char.Parse(Console.ReadLine());
-bool wantsSugar = (sugarResponse == 'y' || sugarResponse == 'Y');
+
+bool wantsSugar;
+
+if (sugarResponse == 'y')
+{
+    wantsSugar = true;
+}
+else
+{
+    wantsSugar = false;
+}
+
 Console.WriteLine($"Sugar added: {wantsSugar}");
 
 if (wantsSugar)
