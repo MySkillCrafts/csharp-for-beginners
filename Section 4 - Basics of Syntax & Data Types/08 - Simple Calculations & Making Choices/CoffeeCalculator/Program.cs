@@ -44,4 +44,4 @@ double totalPrice = numberOfCoffees * pricePerCoffee;
 double totalWithTax = totalPrice + (totalPrice * salesTax);
 
 Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${totalPrice}.");
-Console.WriteLine($"Including tax, your total comes to ${totalWithTax}.")
+Console.WriteLine($"Including tax, your total comes to ${totalWithTax}.");
