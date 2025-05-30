@@ -18,26 +18,24 @@ if (!isValidNumber)
 Console.Write("Would you like sugar in your coffee? (y/n): ");
 char sugarResponse = char.Parse(Console.ReadLine());
 
-bool wantsSugar;
+bool hasSugar = sugarResponse == 'y';
 
-if (sugarResponse == 'y')
+Console.Write("Would you like cream in your coffee? (y/n): ");
+char creamResponse = char.Parse(Console.ReadLine());
+
+bool hasCream = creamResponse == 'y';
+
+if (hasSugar && hasCream)
 {
-    wantsSugar = true;
+    Console.WriteLine("Coffee with sugar and cream.");
+}
+else if (hasSugar || hasCream)
+{
+    Console.WriteLine("You chose either sugar or cream. Enjoy your coffee!");
 }
 else
 {
-    wantsSugar = false;
-}
-
-Console.WriteLine($"Sugar added: {wantsSugar}");
-
-if (wantsSugar)
-{
-    Console.WriteLine("Adding sugar to your coffee.");
-}
-else
-{
-    Console.WriteLine("No sugar added to your coffee.");
+    Console.WriteLine("Plain coffee coming right up!");
 }
 
 double totalPrice = numberOfCoffees * pricePerCoffee;
