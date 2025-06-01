@@ -3,6 +3,7 @@ double pricePerCoffee = 2.5;
 const double salesTax = 0.07;
 
 Console.WriteLine("Welcome to our Coffee Calculator!");
+Console.WriteLine("We serve coffee.");
 
 Console.Write("How many cups of coffee would you like? ");
 string userInput = Console.ReadLine();
