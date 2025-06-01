@@ -3,13 +3,25 @@ double pricePerCoffee = 2.5;
 const double salesTax = 0.07;
 
 Console.WriteLine("Welcome to our Coffee Calculator!");
+Console.WriteLine("We serve coffee.");
+
 Console.Write("How many cups of coffee would you like? ");
-numberOfCoffees = int.Parse(Console.ReadLine());
+string userInput = Console.ReadLine();
+numberOfCoffees = int.Parse(userInput);
 
 Console.Write("Would you like sugar in your coffee? (y/n): ");
 char sugarResponse = char.Parse(Console.ReadLine());
 
-bool wantsSugar = sugarResponse == 'y';
+bool wantsSugar;
+
+if (sugarResponse == 'y')
+{
+    wantsSugar = true;
+}
+else
+{
+    wantsSugar = false;
+}
 
 Console.WriteLine($"Sugar added: {wantsSugar}");
 
