@@ -43,7 +43,11 @@ else
 }
 
 double totalPrice = numberOfCoffees * pricePerCoffee;
-double totalWithTax = Math.Round(totalPrice + (totalPrice * salesTax), 2);
 
-Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${Math.Round(totalPrice, 2)}.");
-Console.WriteLine($"Including tax, your total comes to ${totalWithTax}.");
+double totalWithTax = totalPrice + (totalPrice * salesTax);
+double roundedTotalWithTax = Math.Round(totalWithTax, 2);
+
+double totalPriceRounded = Math.Round(totalPrice, 2);
+
+Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${totalPriceRounded}.");
+Console.WriteLine($"Including tax, your total comes to ${roundedTotalWithTax}.");
