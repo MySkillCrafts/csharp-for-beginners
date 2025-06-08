@@ -49,3 +49,15 @@ double roundedTotalWithTax = Math.Round(totalWithTax, 2);
 
 Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${totalPriceRounded}.");
 Console.WriteLine($"Including tax, your total comes to ${roundedTotalWithTax}.");
+
+Console.WriteLine();
+Console.WriteLine("    ( ( ( (");
+Console.WriteLine("     ) ) ) )");
+Console.WriteLine("  +-----------+--");
+Console.WriteLine("  |   COFFEE  |  |");
+Console.WriteLine("  |           |  |");
+Console.WriteLine("  |___________|--+");
+Console.WriteLine();
+Console.WriteLine("Enjoy your coffee!");
+Console.WriteLine("Press any key to exit.");
+Console.ReadKey();
