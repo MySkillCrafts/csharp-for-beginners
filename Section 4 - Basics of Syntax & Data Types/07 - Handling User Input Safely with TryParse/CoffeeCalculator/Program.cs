@@ -17,7 +17,7 @@ if (!isValidNumber)
     numberOfCoffees = 1;
 }
 
-Console.WriteLine("Would you like sugar in your coffee? (y/n): ");
+Console.Write("Would you like sugar in your coffee? (y/n): ");
 char sugarResponse = char.Parse(Console.ReadLine());
 
 bool wantsSugar;
@@ -45,6 +45,6 @@ Console.WriteLine($"Sugar added: {wantsSugar}");
 double totalPrice = numberOfCoffees * pricePerCoffee;
 double totalWithTax = totalPrice + (totalPrice * salesTax);
 
-Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is $ {totalPrice}.");
-Console.WriteLine($"Including tax, your total comes to $ {totalWithTax}.");
+Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${totalPrice}.");
+Console.WriteLine($"Including tax, your total comes to ${totalWithTax}.");
 
