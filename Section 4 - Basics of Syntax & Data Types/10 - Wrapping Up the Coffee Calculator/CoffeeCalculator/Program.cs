@@ -1,36 +1,34 @@
 ﻿int numberOfCoffees = 0;
-double pricePerCoffee = 2.5;
-const double salesTax = 0.07;
+double pricePerCoffee = 2.556666666;
+const double salesTax = 0.07899774555;
 
 Console.WriteLine("Welcome to our Coffee Calculator!");
-Console.WriteLine("We serve coffee.");
+Console.WriteLine("We serve coffee");
 
-Console.Write("How many cups of coffee would you like? ");
+Console.Write("How many cups of coffee would you like?");
+
 string userInput = Console.ReadLine();
 
 bool isValidNumber = int.TryParse(userInput, out numberOfCoffees);
 
 if (!isValidNumber)
 {
-    Console.WriteLine("Oops! That doesn't look like a valid number. We'll set your order to 1 coffee by default.");
-    numberOfCoffees = 1;
+    Console.WriteLine("Oops! That doesn't look like a valid number.");
 }
 
 numberOfCoffees = Math.Max(numberOfCoffees, 1);
 
 Console.Write("Would you like sugar in your coffee? (y/n): ");
 char sugarResponse = char.Parse(Console.ReadLine());
-
 bool hasSugar = sugarResponse == 'y';
 
 Console.Write("Would you like cream in your coffee? (y/n): ");
 char creamResponse = char.Parse(Console.ReadLine());
-
 bool hasCream = creamResponse == 'y';
 
 if (hasSugar && hasCream)
 {
-    Console.WriteLine("Coffee with sugar and cream.");
+    Console.WriteLine("Coffee with sugar and cream");
 }
 else if (hasSugar || hasCream)
 {
@@ -47,17 +45,16 @@ double totalWithTax = totalPrice + (totalPrice * salesTax);
 double totalPriceRounded = Math.Round(totalPrice, 2);
 double roundedTotalWithTax = Math.Round(totalWithTax, 2);
 
-Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is ${totalPriceRounded}.");
-Console.WriteLine($"Including tax, your total comes to ${roundedTotalWithTax}.");
+Console.WriteLine($"Your total for {numberOfCoffees} cups of coffee is $ {totalPriceRounded}.");
+Console.WriteLine($"Including tax, your total comes to $ {roundedTotalWithTax}.");
 
-Console.WriteLine();
-Console.WriteLine("    ( ( ( (");
-Console.WriteLine("     ) ) ) )");
-Console.WriteLine("  +-----------+--");
-Console.WriteLine("  |   COFFEE  |  |");
-Console.WriteLine("  |           |  |");
-Console.WriteLine("  |___________|--+");
+Console.WriteLine("     ((((");
+Console.WriteLine("     ))))");
+Console.WriteLine("  +----------+---");
+Console.WriteLine("  |  COFFEE  |    |");
+Console.WriteLine("  |          |    |");
+Console.WriteLine("  |__________|---+");
 Console.WriteLine();
 Console.WriteLine("Enjoy your coffee!");
-Console.WriteLine("Press any key to exit.");
+Console.WriteLine("Press any key to exit");
 Console.ReadKey();
