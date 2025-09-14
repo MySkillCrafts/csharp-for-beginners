@@ -311,6 +311,15 @@ public static class ConsoleHelper
         Console.WriteLine(" 11. Find top students (90+)");
         Console.WriteLine(" 12. Find students above average");
         Console.WriteLine();
+        
+        Console.ForegroundColor = MenuColor;
+        Console.WriteLine("🎓 Learning Examples:");
+        Console.ResetColor();
+        Console.WriteLine(" 13. Manage teachers (List demo)");
+        Console.WriteLine(" 14. Manage emails (Dictionary demo)");
+        Console.WriteLine(" 15. Array vs List examples");
+        Console.WriteLine(" 16. List capabilities demo");
+        Console.WriteLine();
         Console.WriteLine("  0. Exit");
         Console.WriteLine();
         
