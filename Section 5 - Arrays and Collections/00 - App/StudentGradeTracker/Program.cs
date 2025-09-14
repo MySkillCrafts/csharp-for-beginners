@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ═══════════════════════════════════════════════════════════════════════════════════
-// STUDENT GRADE TRACKER - REBALANCED FOR 9 LESSONS (5-7 MIN EACH)
+// STUDENT GRADE TRACKER - PROGRESSIVE LESSONS
 // ═══════════════════════════════════════════════════════════════════════════════════
 // This application is built progressively through 9 lessons:
 // 
-// LESSON 1: Arrays vs Lists - Fixed vs Dynamic Collections + Basic Array Operations
-// LESSON 2: List<T> Fundamentals - Add, Count, Index Access + Simple Display
-// LESSON 3: List<T> Management - Remove, Contains, Clear + Data Integrity  
-// LESSON 4: Dictionary Basics - Key-Value Concept + Adding/Accessing Grades
-// LESSON 5: Dictionary Advanced - TryGetValue, ContainsKey + Safe Operations
-// LESSON 6: Sorting & Organizing - Sort, Reverse + StringComparer Concepts
-// LESSON 7: Search & Validation - Find by Name + Input Validation Patterns
-// LESSON 8: LINQ Introduction - Where, OrderBy + Filtering Concepts
-// LESSON 9: LINQ Reports - Average, Min, Max + Data Analysis
+// LESSON 1: Arrays vs Lists: When Each Makes Sense
+// LESSON 2: Generics Made Simple: What `<T>` Means
+// LESSON 3: `List<string>` Basics: Add, Remove, Show
+// LESSON 4: Clean Up Lists: Sort and Find (No LINQ)
+// LESSON 5: Dictionaries for Grades: Keys and Values
+// LESSON 6: Gentle Validation: Names and Score Rules
+// LESSON 7: Simple LINQ I: Filter and Sort
+// LESSON 8: Simple LINQ II: Averages and Reports
+// LESSON 9: **Mini-project:** Student Grade Tracker
 // ═══════════════════════════════════════════════════════════════════════════════════
 
 class Program
 {
     // =============================================================================
-    // LESSON 1: Arrays vs Lists - Fixed vs Dynamic Collections
+    // LESSON 1: Arrays vs Lists: When Each Makes Sense
     // =============================================================================
     // We explore both arrays and lists, showing when each is appropriate
     // Arrays: fixed size, fast access, simple scenarios
@@ -35,14 +35,14 @@ class Program
     static List<string> teacherNames = new List<string>(); // Additional example for lesson 1
     
     // =============================================================================
-    // LESSON 4: Dictionary Basics - Key-Value Relationships
+    // LESSON 5: Dictionaries for Grades: Keys and Values
     // =============================================================================
     // Dictionary introduction - "by student name, find their grades"
     
-    // LESSON 4: Dictionary for storing grades by student name
+    // LESSON 5: Dictionary for storing grades by student name
     static Dictionary<string, List<int>> studentGrades = new Dictionary<string, List<int>>();
     
-    // LESSON 4: Additional dictionary example for lesson depth
+    // LESSON 5: Additional dictionary example for lesson depth
     static Dictionary<string, string> studentEmails = new Dictionary<string, string>();
     
     static void Main()
@@ -63,40 +63,40 @@ class Program
             switch (choice)
             {
                 case "1":
-                    AddStudent();           // LESSON 2
+                    AddStudent();           // LESSON 2-3
                     break;
                 case "2":
                     RemoveStudent();        // LESSON 3  
                     break;
                 case "3":
-                    ShowAllStudents();      // LESSON 2
+                    ShowAllStudents();      // LESSON 2-3
                     break;
                 case "4":
-                    SortStudentsAZ();       // LESSON 6
+                    SortStudentsAZ();       // LESSON 4
                     break;
                 case "5":
-                    SortStudentsZA();       // LESSON 6
+                    SortStudentsZA();       // LESSON 4
                     break;
                 case "6":
-                    FindStudentByName();    // LESSON 7
+                    FindStudentByName();    // LESSON 4 & 6
                     break;
                 case "7":
-                    AddGrade();             // LESSON 4
+                    AddGrade();             // LESSON 5
                     break;
                 case "8":
                     ShowStudentGrades();    // LESSON 5
                     break;
                 case "9":
-                    ShowStudentAverage();   // LESSON 9
+                    ShowStudentAverage();   // LESSON 8
                     break;
                 case "10":
-                    ShowClassReport();      // LESSON 9
+                    ShowClassReport();      // LESSON 8
                     break;
                 case "11":
-                    FindTopStudents();      // LESSON 8
+                    FindTopStudents();      // LESSON 7
                     break;
                 case "12":
-                    FindStudentsAboveAverage(); // LESSON 8
+                    FindStudentsAboveAverage(); // LESSON 7
                     break;
                 case "13":
                     ManageTeachers();       // LESSON 1 (additional example)
@@ -128,7 +128,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 1: Arrays vs Lists - When Each Makes Sense
+    // LESSON 1: Arrays vs Lists: When Each Makes Sense
     // =============================================================================
     
     static void ShowArrayExamples()
@@ -207,38 +207,38 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 2: List<T> Fundamentals - Add, Count, Index Access
+    // LESSON 2: Generics Made Simple: What `<T>` Means + LESSON 3: List<string> Basics
     // =============================================================================
     
     static void AddStudent()
     {
         string name = ConsoleHelper.GetInput("Enter student name: ");
         
-        // Basic validation (will be expanded in LESSON 7)
+        // Basic validation (will be expanded in LESSON 6)
         if (string.IsNullOrWhiteSpace(name))
         {
             ConsoleHelper.ShowError("Name cannot be empty!");
             return;
         }
         
-        // LESSON 2: Add to list - core operation
+        // LESSON 3: Add to list - core operation
         studentNames.Add(name);
         
-        // LESSON 2: Show list growth
+        // LESSON 3: Show list growth
         ConsoleHelper.ShowSuccess($"Added student: {name}");
         ConsoleHelper.ShowInfo($"Total students now: {studentNames.Count}");
         
-        // LESSON 4: Initialize empty grade list (dictionary concept)
+        // LESSON 5: Initialize empty grade list (dictionary concept)
         studentGrades[name] = new List<int>();
         
-        // LESSON 2: Demonstrate index access
+        // LESSON 3: Demonstrate index access
         ConsoleHelper.ShowInfo($"This student is at position: {studentNames.Count - 1}");
         ConsoleHelper.ShowInfo($"We can access them by index: {studentNames[studentNames.Count - 1]}");
     }
     
     static void ShowAllStudents()
     {
-        // LESSON 2: Count property and display list contents using beautiful tables
+        // LESSON 3: Count property and display list contents using beautiful tables
         ConsoleHelper.ShowStudentList(studentNames, studentGrades);
         
     }
@@ -247,27 +247,27 @@ class Program
     {
         ConsoleHelper.ShowInfo("=== List<T> Capabilities Demo ===");
         
-        // Create a demo list
-        List<string> demoList = new List<string> { "Apple", "Banana", "Cherry", "Date" };
+        // Create a demo list with school subjects
+        List<string> demoSubjects = new List<string> { "Mathematics", "Science", "English", "History" };
         
-        ConsoleHelper.ShowInfo("Original list contents:");
-        for (int i = 0; i < demoList.Count; i++)
+        ConsoleHelper.ShowInfo("Original subject list:");
+        for (int i = 0; i < demoSubjects.Count; i++)
         {
-            Console.WriteLine($"  [{i}] {demoList[i]} (Length: {demoList[i].Length})");
+            Console.WriteLine($"  [{i}] {demoSubjects[i]} (Length: {demoSubjects[i].Length} chars)");
         }
         Console.WriteLine();
         
         // Show operations results
         ConsoleHelper.ShowInfo("List operations:");
-        Console.WriteLine($"  First item: {demoList[0]}");
-        Console.WriteLine($"  Last item: {demoList[demoList.Count - 1]}");
-        Console.WriteLine($"  Contains 'Apple': {demoList.Contains("Apple")}");
-        Console.WriteLine($"  'Banana' index: {demoList.IndexOf("Banana")}");
-        Console.WriteLine($"  Total count: {demoList.Count}");
+        Console.WriteLine($"  First subject: {demoSubjects[0]}");
+        Console.WriteLine($"  Last subject: {demoSubjects[demoSubjects.Count - 1]}");
+        Console.WriteLine($"  Contains 'Mathematics': {demoSubjects.Contains("Mathematics")}");
+        Console.WriteLine($"  'Science' index: {demoSubjects.IndexOf("Science")}");
+        Console.WriteLine($"  Total count: {demoSubjects.Count}");
     }
     
     // =============================================================================
-    // LESSON 3: List<T> Management - Remove, Contains, Clear + Data Integrity
+    // LESSON 3: List<string> Basics: Add, Remove, Show
     // =============================================================================
     
     static void RemoveStudent()
@@ -323,7 +323,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 4: Dictionary Basics - Key-Value Concept + Adding/Accessing Grades
+    // LESSON 5: Dictionaries for Grades: Keys and Values
     // =============================================================================
     
     static void AddGrade()
@@ -343,7 +343,7 @@ class Program
         
         string name = ConsoleHelper.GetInput("Enter student name: ");
         
-        // LESSON 4: Dictionary key existence check
+        // LESSON 5: Dictionary key existence check
         if (!studentGrades.ContainsKey(name))
         {
             ConsoleHelper.ShowError("Student not found in gradebook!");
@@ -358,12 +358,12 @@ class Program
             return;
         }
         
-        // LESSON 4: Dictionary value access and modification
+        // LESSON 5: Dictionary value access and modification
         studentGrades[name].Add(grade);
         
         ConsoleHelper.ShowSuccess($"Added grade {grade} for {name}");
         
-        // LESSON 4: Show current grades for this student
+        // LESSON 5: Show current grades for this student
         List<int> currentGrades = studentGrades[name];
         ConsoleHelper.ShowInfo($"Current grades for {name}: {string.Join(", ", currentGrades)}");
         ConsoleHelper.ShowInfo($"Total grades: {currentGrades.Count}");
@@ -409,7 +409,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 5: Dictionary Advanced - TryGetValue, ContainsKey + Safe Operations
+    // LESSON 5: Dictionaries for Grades: Keys and Values (Advanced)
     // =============================================================================
     
     static void ShowStudentGrades()
@@ -436,7 +436,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 6: Sorting & Organizing - Sort, Reverse + StringComparer Concepts
+    // LESSON 4: Clean Up Lists: Sort and Find (No LINQ)
     // =============================================================================
     
     static void SortStudentsAZ()
@@ -450,7 +450,7 @@ class Program
         ConsoleHelper.ShowInfo("Before sorting:");
         ShowAllStudents();
         
-        // LESSON 6: Basic sort
+        // LESSON 4: Basic sort
         studentNames.Sort();
         ConsoleHelper.ShowSuccess("Sorted A→Z (basic sort)");
         
@@ -458,7 +458,7 @@ class Program
         ConsoleHelper.ShowInfo("After basic sort:");
         ShowAllStudents();
         
-        // LESSON 6: Case-insensitive sort
+        // LESSON 4: Case-insensitive sort
         studentNames.Sort(StringComparer.OrdinalIgnoreCase);
         ConsoleHelper.ShowInfo("Applied case-insensitive sort (StringComparer.OrdinalIgnoreCase)");
         
@@ -472,7 +472,7 @@ class Program
             return;
         }
 
-        // LESSON 6: Sort then reverse
+        // LESSON 4: Sort then reverse
         studentNames.Sort(StringComparer.OrdinalIgnoreCase);
         studentNames.Reverse();
         
@@ -482,7 +482,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 7: Search & Validation - Find by Name + Input Validation Patterns
+    // LESSON 6: Gentle Validation: Names and Score Rules + LESSON 4: Find
     // =============================================================================
     
     static void FindStudentByName()
@@ -495,7 +495,7 @@ class Program
 
         string searchTerm = ConsoleHelper.GetInput("Enter part of student name: ");
 
-        // LESSON 7: Input validation
+        // LESSON 6: Input validation
         if (string.IsNullOrWhiteSpace(searchTerm))
         {
             ConsoleHelper.ShowError("Search term cannot be empty!");
@@ -507,7 +507,7 @@ class Program
             ConsoleHelper.ShowWarning("Search term should be at least 2 characters for better results.");
         }
         
-        // LESSON 7: Manual search using Contains
+        // LESSON 4: Manual search using Contains
         List<string> exactMatches = new List<string>();
         List<string> partialMatches = new List<string>();
         
@@ -527,7 +527,7 @@ class Program
             }
         }
         
-        // LESSON 7: Display results with different categories
+        // LESSON 4: Display results with different categories
         if (exactMatches.Count > 0)
         {
             ConsoleHelper.ShowSuccess("Exact matches:");
@@ -554,7 +554,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 8: LINQ Introduction - Where, OrderBy + Filtering Concepts
+    // LESSON 7: Simple LINQ I: Filter and Sort
     // =============================================================================
     
     static void FindTopStudents()
@@ -567,7 +567,7 @@ class Program
 
         ConsoleHelper.ShowInfo("=== LINQ Introduction: Filtering Data ===");
         
-        // LESSON 8: Manual approach using loops and conditions
+        // LESSON 7: Manual approach using loops and conditions
         List<string> studentsWithGrades = new List<string>();
         for (int i = 0; i < studentNames.Count; i++)
         {
@@ -586,7 +586,7 @@ class Program
             return;
         }
 
-        // LESSON 8: Find top students using loops and conditions
+        // LESSON 7: Find top students using loops and conditions
         List<string> topStudentNames = new List<string>();
         List<double> topStudentAverages = new List<double>();
         
@@ -636,7 +636,7 @@ class Program
             return;
         }
 
-        // LESSON 8: Manual approach - collect all grades
+        // LESSON 7: Manual approach - collect all grades
         List<int> allGrades = new List<int>();
         for (int i = 0; i < studentNames.Count; i++)
         {
@@ -656,7 +656,7 @@ class Program
 
         double classAverage = CalculateAverage(allGrades);
         
-        // LESSON 8: Find students above average manually
+        // LESSON 7: Find students above average manually
         List<string> aboveAverageNames = new List<string>();
         List<double> aboveAverageValues = new List<double>();
         
@@ -699,7 +699,7 @@ class Program
     }
     
     // =============================================================================
-    // LESSON 9: LINQ Reports - Average, Min, Max + Data Analysis
+    // LESSON 8: Simple LINQ II: Averages and Reports
     // =============================================================================
     
     static void ShowStudentAverage()
@@ -720,7 +720,7 @@ class Program
             }
             else
             {
-                // LESSON 9: Basic statistics calculation
+                // LESSON 8: Basic statistics calculation
                 double average = CalculateAverage(grades);
                 int minGrade = FindMinGrade(grades);
                 int maxGrade = FindMaxGrade(grades);
@@ -728,7 +728,7 @@ class Program
                 
                 ConsoleHelper.ShowStudentAverage(name, average, grades);
                 
-                // LESSON 9: Additional statistics
+                // LESSON 8: Additional statistics
                 Console.WriteLine();
                 ConsoleHelper.ShowInfo("Detailed statistics:");
                 Console.WriteLine($"- Average: {average:F2}%");
@@ -737,7 +737,7 @@ class Program
                 Console.WriteLine($"- Grade range: {maxGrade - minGrade} points");
                 Console.WriteLine($"- Total assessments: {totalGrades}");
                 
-                // LESSON 9: Manual counting with conditions
+                // LESSON 8: Manual counting with conditions
                 int highGradeCount = 0;
                 int lowGradeCount = 0;
                 for (int i = 0; i < grades.Count; i++)
@@ -766,7 +766,7 @@ class Program
             return;
         }
 
-        // LESSON 9: Manual data collection
+        // LESSON 8: Manual data collection
         List<int> allGrades = new List<int>();
         for (int i = 0; i < studentNames.Count; i++)
         {
@@ -784,13 +784,13 @@ class Program
             return;
         }
 
-        // LESSON 9: Basic statistics
+        // LESSON 8: Basic statistics
         double classAverage = CalculateAverage(allGrades);
         int totalGrades = allGrades.Count;
         int highestGrade = FindMaxGrade(allGrades);
         int lowestGrade = FindMinGrade(allGrades);
         
-        // LESSON 9: Find top performer manually
+        // LESSON 8: Find top performer manually
         string topPerformer = "";
         double topAverage = 0;
         for (int i = 0; i < studentNames.Count; i++)
@@ -807,7 +807,7 @@ class Program
             }
         }
         
-        // LESSON 9: Create students with grades lists manually (using separate lists)
+        // LESSON 8: Create students with grades lists manually (using separate lists)
         List<string> studentNamesWithGrades = new List<string>();
         List<double> studentAverages = new List<double>();
         List<int> studentGradeCounts = new List<int>();
@@ -851,7 +851,7 @@ class Program
             }
         }
         
-        // LESSON 9: Grade distribution analysis manually
+        // LESSON 8: Grade distribution analysis manually
         List<string> gradeRanges = new List<string>();
         List<int> gradeCounts = new List<int>();
         int[] rangeCounts = new int[11]; // 0-9, 10-19, ..., 90-99, 100
@@ -878,7 +878,7 @@ class Program
             highestGrade, lowestGrade, topPerformer, topAverage, 
             studentNamesWithGrades, studentAverages, studentGradeCounts);
         
-        // LESSON 9: Show grade distribution
+        // LESSON 8: Show grade distribution
         Console.WriteLine();
         ConsoleHelper.ShowInfo("Grade Distribution:");
         for (int i = 0; i < gradeRanges.Count; i++)
@@ -1024,7 +1024,7 @@ class Program
     // Add some initial data to make the app interesting
     static void AddInitialData()
     {
-        // LESSON 2: Add initial students
+        // LESSON 3: Add initial students
         studentNames.Add("Alice Johnson");
         studentNames.Add("Bob Smith"); 
         studentNames.Add("Carol Davis");
@@ -1034,28 +1034,28 @@ class Program
         teacherNames.Add("Dr. Smith");
         teacherNames.Add("Prof. Johnson");
         
-        // LESSON 4: Add initial grades
+        // LESSON 5: Add initial grades
         studentGrades["Alice Johnson"] = new List<int> { 92, 88, 95, 90 };
         studentGrades["Bob Smith"] = new List<int> { 78, 85, 82 };
         studentGrades["Carol Davis"] = new List<int> { 95, 98, 97, 100, 94 };
         studentGrades["David Wilson"] = new List<int> { 88, 91, 87, 93 };
         
-        // LESSON 4: Add initial emails
+        // LESSON 5: Add initial emails
         studentEmails["Alice Johnson"] = "alice.j@school.edu";
         studentEmails["Bob Smith"] = "bob.s@school.edu";
     }
 }
 
 // =============================================================================
-// REBALANCED LESSON PROGRESSION SUMMARY:
+// LESSON PROGRESSION SUMMARY:
 // =============================================================================
-// LESSON 1: Arrays vs Lists + Basic Operations (40+ lines of teaching content)
-// LESSON 2: List<T> Fundamentals + Add/Count/Index (50+ lines of teaching content)
-// LESSON 3: List<T> Management + Remove/Contains/Clear (60+ lines of teaching content)
-// LESSON 4: Dictionary Basics + Key-Value Operations (55+ lines of teaching content)
-// LESSON 5: Dictionary Advanced + Safe Access Patterns (45+ lines of teaching content)
-// LESSON 6: Sorting & Organizing + StringComparer (50+ lines of teaching content)
-// LESSON 7: Search & Validation + Input Patterns (65+ lines of teaching content)
-// LESSON 8: LINQ Introduction + Where/OrderBy (60+ lines of teaching content)
-// LESSON 9: LINQ Reports + Aggregation Methods (70+ lines of teaching content)
+// LESSON 1: Arrays vs Lists: When Each Makes Sense
+// LESSON 2: Generics Made Simple: What `<T>` Means
+// LESSON 3: `List<string>` Basics: Add, Remove, Show
+// LESSON 4: Clean Up Lists: Sort and Find (No LINQ)
+// LESSON 5: Dictionaries for Grades: Keys and Values
+// LESSON 6: Gentle Validation: Names and Score Rules
+// LESSON 7: Simple LINQ I: Filter and Sort
+// LESSON 8: Simple LINQ II: Averages and Reports
+// LESSON 9: **Mini-project:** Student Grade Tracker (Complete Application)
 // =============================================================================
