@@ -241,13 +241,6 @@ class Program
         // LESSON 2: Count property and display list contents using beautiful tables
         ConsoleHelper.ShowStudentList(studentNames, studentGrades);
         
-        // LESSON 2: Show different access methods
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("List access methods demonstrated:");
-        Console.WriteLine("- Index access: studentNames[0]");
-        Console.WriteLine("- Count property: studentNames.Count");
-        Console.WriteLine("- foreach loop: simple iteration");
-        Console.WriteLine("- for loop: with index control");
     }
     
     static void DemonstrateListCapabilities()
@@ -317,11 +310,6 @@ class Program
         // LESSON 3: Demonstrate other removal methods
         if (studentNames.Count > 0)
         {
-            ConsoleHelper.ShowInfo("Other removal options:");
-            Console.WriteLine("- RemoveAt(index) - remove by position");
-            Console.WriteLine("- RemoveAll(condition) - remove multiple items");
-            Console.WriteLine("- Clear() - remove everything");
-            
             string clearAll = ConsoleHelper.GetInput("Clear all students? (y/n): ");
             if (clearAll.ToLower() == "y")
             {
@@ -439,22 +427,11 @@ class Program
         {
             ConsoleHelper.ShowStudentGrades(name, grades);
             
-            // LESSON 5: Additional dictionary operations
-            ConsoleHelper.ShowInfo("Dictionary operations demonstrated:");
-            Console.WriteLine($"- TryGetValue: Safe access without exceptions");
-            Console.WriteLine($"- Key exists: {studentGrades.ContainsKey(name)}");
-            Console.WriteLine($"- Total students in gradebook: {studentGrades.Count}");
-            Console.WriteLine($"- All keys: {string.Join(", ", studentGrades.Keys)}");
         }
         else
         {
             ConsoleHelper.ShowError("Student not found!");
             
-            // LESSON 5: Show the difference between ContainsKey and direct access
-            ConsoleHelper.ShowInfo("Dictionary safety:");
-            Console.WriteLine("- TryGetValue returns false if key not found");
-            Console.WriteLine("- ContainsKey checks existence first");
-            Console.WriteLine("- Direct access [key] would throw exception if key missing");
         }
     }
     
@@ -485,13 +462,6 @@ class Program
         studentNames.Sort(StringComparer.OrdinalIgnoreCase);
         ConsoleHelper.ShowInfo("Applied case-insensitive sort (StringComparer.OrdinalIgnoreCase)");
         
-        // LESSON 6: Explain sorting concepts
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("Sorting concepts:");
-        Console.WriteLine("- Sort() modifies the original list");
-        Console.WriteLine("- Default sort is case-sensitive (A-Z, then a-z)");
-        Console.WriteLine("- StringComparer.OrdinalIgnoreCase treats A=a");
-        Console.WriteLine("- Other options: CurrentCulture, InvariantCulture");
     }
     
     static void SortStudentsZA()
@@ -509,18 +479,6 @@ class Program
         ConsoleHelper.ShowSuccess("Sorted Z→A (Sort + Reverse)");
         ShowAllStudents();
         
-        // LESSON 6: Alternative approaches
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("Alternative approaches:");
-        Console.WriteLine("1. Sort() then Reverse() - what we just did");
-        Console.WriteLine("2. Custom comparer with reversed logic");
-        Console.WriteLine("3. LINQ OrderByDescending() - coming in lesson 8!");
-        
-        // LESSON 6: Demonstrate other list organization methods
-        ConsoleHelper.ShowInfo("Other list organization methods:");
-        Console.WriteLine("- Reverse() - flip the order");
-        Console.WriteLine("- Shuffle would need custom implementation");
-        Console.WriteLine("- Group by first letter - possible with LINQ later");
     }
     
     // =============================================================================
@@ -549,7 +507,7 @@ class Program
             ConsoleHelper.ShowWarning("Search term should be at least 2 characters for better results.");
         }
         
-        // LESSON 7: Manual search using Contains (no LINQ yet)
+        // LESSON 7: Manual search using Contains
         List<string> exactMatches = new List<string>();
         List<string> partialMatches = new List<string>();
         
@@ -593,13 +551,6 @@ class Program
             ConsoleHelper.ShowWarning($"No students found containing '{searchTerm}'");
         }
         
-        // LESSON 7: Validation concepts summary
-            Console.WriteLine();
-        ConsoleHelper.ShowInfo("Validation patterns demonstrated:");
-        Console.WriteLine("- Null/empty checks with string.IsNullOrWhiteSpace()");
-        Console.WriteLine("- Length validation for meaningful input");
-        Console.WriteLine("- Case-insensitive comparisons");
-        Console.WriteLine("- Exact vs partial matching strategies");
     }
     
     // =============================================================================
@@ -616,7 +567,7 @@ class Program
 
         ConsoleHelper.ShowInfo("=== LINQ Introduction: Filtering Data ===");
         
-        // LESSON 8: First show how to do it WITHOUT LINQ (manual approach)
+        // LESSON 8: Manual approach using loops and conditions
         List<string> studentsWithGrades = new List<string>();
         for (int i = 0; i < studentNames.Count; i++)
         {
@@ -635,7 +586,7 @@ class Program
             return;
         }
 
-        // LESSON 8: Find top students manually (before showing LINQ)
+        // LESSON 8: Find top students using loops and conditions
         List<string> topStudentNames = new List<string>();
         List<double> topStudentAverages = new List<double>();
         
@@ -653,7 +604,7 @@ class Program
             }
         }
         
-        // Simple bubble sort for demonstration (before LINQ OrderBy)
+        // Simple bubble sort for demonstration
         for (int i = 0; i < topStudentNames.Count - 1; i++)
         {
             for (int j = 0; j < topStudentNames.Count - 1 - i; j++)
@@ -675,21 +626,6 @@ class Program
         
         ShowTopStudentsSimple(topStudentNames, topStudentAverages);
         
-        // LESSON 8: NOW show the LINQ equivalent
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("The same with LINQ (much simpler!):");
-        Console.WriteLine("var topStudents = studentNames");
-        Console.WriteLine("    .Where(name => studentGrades[name].Count > 0)");
-        Console.WriteLine("    .Where(name => studentGrades[name].Average() >= 90)");
-        Console.WriteLine("    .OrderByDescending(name => studentGrades[name].Average())");
-        Console.WriteLine("    .Select(name => (name, studentGrades[name].Average()))");
-        Console.WriteLine("    .ToList();");
-        
-        ConsoleHelper.ShowInfo("LINQ benefits:");
-        Console.WriteLine("- Much less code");
-        Console.WriteLine("- More readable");
-        Console.WriteLine("- Less chance for bugs");
-        Console.WriteLine("- Chainable operations");
     }
     
     static void FindStudentsAboveAverage()
@@ -760,18 +696,6 @@ class Program
         
         ShowAboveAverageStudentsSimple(classAverage, aboveAverageNames, aboveAverageValues);
         
-        // LESSON 8: Show LINQ equivalent
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("The same with LINQ:");
-        Console.WriteLine("var allGrades = studentGrades.Values");
-        Console.WriteLine("    .SelectMany(grades => grades).ToList();");
-        Console.WriteLine("var aboveAverage = studentNames");
-        Console.WriteLine("    .Where(name => studentGrades[name].Count > 0)");
-        Console.WriteLine("    .Where(name => studentGrades[name].Average() > classAverage)");
-        Console.WriteLine("    .OrderByDescending(name => studentGrades[name].Average())");
-        Console.WriteLine("    .Select(name => (name, studentGrades[name].Average()))");
-        
-        ConsoleHelper.ShowInfo("LINQ made this much simpler!");
     }
     
     // =============================================================================
@@ -796,7 +720,7 @@ class Program
             }
             else
             {
-                // LESSON 9: Basic aggregation methods
+                // LESSON 9: Basic statistics calculation
                 double average = CalculateAverage(grades);
                 int minGrade = FindMinGrade(grades);
                 int maxGrade = FindMaxGrade(grades);
@@ -813,7 +737,7 @@ class Program
                 Console.WriteLine($"- Grade range: {maxGrade - minGrade} points");
                 Console.WriteLine($"- Total assessments: {totalGrades}");
                 
-                // LESSON 9: Manual counting with conditions (before LINQ)
+                // LESSON 9: Manual counting with conditions
                 int highGradeCount = 0;
                 int lowGradeCount = 0;
                 for (int i = 0; i < grades.Count; i++)
@@ -842,7 +766,7 @@ class Program
             return;
         }
 
-        // LESSON 9: Manual data collection (before LINQ)
+        // LESSON 9: Manual data collection
         List<int> allGrades = new List<int>();
         for (int i = 0; i < studentNames.Count; i++)
         {
@@ -965,15 +889,6 @@ class Program
             Console.WriteLine($"  {range}%: {count} grades ({percentage:F1}%)");
         }
         
-        // LESSON 9: LINQ concepts summary
-        Console.WriteLine();
-        ConsoleHelper.ShowInfo("LINQ aggregation methods used:");
-        Console.WriteLine("- Average() - calculates mean value");
-        Console.WriteLine("- Min() / Max() - finds extremes");
-        Console.WriteLine("- Count() - counts items");
-        Console.WriteLine("- GroupBy() - groups data by criteria");
-        Console.WriteLine("- FirstOrDefault() - gets first item or default");
-        Console.WriteLine("- SelectMany() - flattens nested collections");
     }
     
     // =============================================================================
@@ -982,7 +897,7 @@ class Program
     
     static bool StudentExists(string name)
     {
-        // Simple loop-based search (used in early lessons before LINQ)
+        // Simple loop-based search
         for (int i = 0; i < studentNames.Count; i++)
         {
             if (studentNames[i].Equals(name, StringComparison.OrdinalIgnoreCase))
