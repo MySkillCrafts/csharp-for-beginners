@@ -5,6 +5,10 @@ class Program
 {
     static void Main()
     {
+        // =============================================================================
+        // LESSON 1: Arrays vs Lists - When Each Makes Sense (from previous lesson)
+        // =============================================================================
+        
         // Arrays - Fixed size collections
         string[] subjects = { "Math", "Science", "English", "History" };
         
@@ -33,6 +37,10 @@ class Program
         // Comparison
         int arrayFinalSize = subjects.Length;
         int listFinalSize = studentNames.Count;
+        
+        // =============================================================================
+        // LESSON 2: Generics Made Simple - What <T> Means
+        // =============================================================================
         
         // Now let's explore different types of Lists
         // List<int> - holds only integers

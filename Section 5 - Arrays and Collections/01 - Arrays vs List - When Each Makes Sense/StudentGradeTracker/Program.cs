@@ -5,6 +5,10 @@ class Program
 {
     static void Main()
     {
+        // =============================================================================
+        // LESSON 1: Arrays vs Lists - When Each Makes Sense
+        // =============================================================================
+        
         // Arrays - Fixed size collections
         string[] subjects = { "Math", "Science", "English", "History" };
         
