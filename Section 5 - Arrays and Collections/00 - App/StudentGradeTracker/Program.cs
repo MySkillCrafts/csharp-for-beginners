@@ -238,31 +238,16 @@ class Program
     
     static void ShowAllStudents()
     {
-        // LESSON 2: Count property
-        if (studentNames.Count == 0)
-        {
-            ConsoleHelper.ShowWarning("No students yet. Add some students first!");
-            return;
-        }
+        // LESSON 2: Count property and display list contents using beautiful tables
+        ConsoleHelper.ShowStudentList(studentNames, studentGrades);
         
-        ConsoleHelper.ShowInfo($"=== All Students (Count: {studentNames.Count}) ===");
-        
-        // LESSON 2: Index-based access with for loop
-        ConsoleHelper.ShowInfo("Using index access:");
-        for (int i = 0; i < studentNames.Count; i++)
-        {
-            string name = studentNames[i];
-            int gradeCount = studentGrades[name].Count;
-            Console.WriteLine($"  [{i}] {name} ({gradeCount} grades)");
-        }
-        
-        // LESSON 2: Alternative - foreach loop
+        // LESSON 2: Show different access methods
         Console.WriteLine();
-        ConsoleHelper.ShowInfo("Using foreach (simpler):");
-        foreach (string name in studentNames)
-        {
-            Console.WriteLine($"  • {name}");
-        }
+        ConsoleHelper.ShowInfo("List access methods demonstrated:");
+        Console.WriteLine("- Index access: studentNames[0]");
+        Console.WriteLine("- Count property: studentNames.Count");
+        Console.WriteLine("- foreach loop: simple iteration");
+        Console.WriteLine("- for loop: with index control");
     }
     
     static void DemonstrateListCapabilities()
@@ -272,23 +257,28 @@ class Program
         // Create a demo list
         List<string> demoList = new List<string> { "Apple", "Banana", "Cherry", "Date" };
         
-        ConsoleHelper.ShowInfo("Original list:");
-        for (int i = 0; i < demoList.Count; i++)
+        // Show list in table format
+        var listData = demoList.Select((item, index) => new
         {
-            Console.WriteLine($"  {i}: {demoList[i]}");
-        }
+            Index = index,
+            Item = item,
+            Length = item.Length,
+            FirstChar = item[0]
+        });
         
-        // Index access
-        ConsoleHelper.ShowInfo($"First item: {demoList[0]}");
-        ConsoleHelper.ShowInfo($"Last item: {demoList[demoList.Count - 1]}");
+        ConsoleHelper.ShowTable(listData, "Original List Contents");
         
-        // Contains check
-        bool hasApple = demoList.Contains("Apple");
-        ConsoleHelper.ShowInfo($"Contains 'Apple': {hasApple}");
+        // Show operations results
+        var operations = new[]
+        {
+            new { Operation = "First item", Result = demoList[0] },
+            new { Operation = "Last item", Result = demoList[demoList.Count - 1] },
+            new { Operation = "Contains 'Apple'", Result = demoList.Contains("Apple").ToString() },
+            new { Operation = "'Banana' index", Result = demoList.IndexOf("Banana").ToString() },
+            new { Operation = "Total count", Result = demoList.Count.ToString() }
+        };
         
-        // IndexOf
-        int bananaIndex = demoList.IndexOf("Banana");
-        ConsoleHelper.ShowInfo($"'Banana' is at index: {bananaIndex}");
+        ConsoleHelper.ShowTable(operations, "List Operations Results");
     }
     
     // =============================================================================

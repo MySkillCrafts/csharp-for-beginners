@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 // ═══════════════════════════════════════════════════════════════════════════════════
 // CONSOLE HELPER - КРАСИВЫЙ ВЫВОД ДЛЯ СТУДЕНТОВ
@@ -75,6 +76,44 @@ public static class ConsoleHelper
     }
 
     /// <summary>
+    /// Универсальный метод для отображения данных в красивой таблице
+    /// </summary>
+    public static void ShowTable<T>(IEnumerable<T> data, string title = "")
+    {
+        var dataList = data.ToList();
+        if (dataList.Count == 0)
+        {
+            ShowWarning("No data to display.");
+            return;
+        }
+
+        if (!string.IsNullOrEmpty(title))
+        {
+            ShowInfo(title);
+        }
+
+        var firstItem = dataList.First();
+        var properties = firstItem?.GetType().GetProperties()
+            .Where(p => p.CanRead)
+            .ToArray() ?? new System.Reflection.PropertyInfo[0];
+
+        if (properties.Length == 0)
+        {
+            // Простые типы (string, int, etc.)
+            ShowSimpleList(dataList, title);
+            return;
+        }
+
+        // Получаем заголовки и данные
+        var headers = properties.Select(p => p.Name).ToArray();
+        var rows = dataList.Select(item => 
+            properties.Select(p => p.GetValue(item)?.ToString() ?? "").ToArray()
+        ).ToArray();
+
+        ShowFormattedTable(headers, rows);
+    }
+
+    /// <summary>
     /// Показывает список студентов в красивой таблице
     /// </summary>
     public static void ShowStudentList(List<string> students, Dictionary<string, List<int>> grades)
@@ -85,27 +124,141 @@ public static class ConsoleHelper
             return;
         }
 
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"👥 All Students ({students.Count} total):");
-        Console.WriteLine("".PadLeft(50, '─'));
+        var studentData = students.Select((name, index) => new
+        {
+            No = index + 1,
+            Name = name,
+            Grades = grades[name].Count,
+            Average = grades[name].Count > 0 ? grades[name].Average().ToString("F1") + "%" : "N/A"
+        });
+
+        ShowTable(studentData, $"👥 All Students ({students.Count} total)");
+    }
+
+    /// <summary>
+    /// Показывает простой список элементов
+    /// </summary>
+    private static void ShowSimpleList<T>(List<T> items, string title)
+    {
+        var headers = new[] { "#", "Value" };
+        var rows = items.Select((item, index) => new[] 
+        { 
+            (index + 1).ToString(), 
+            item?.ToString() ?? "" 
+        }).ToArray();
+
+        ShowFormattedTable(headers, rows);
+    }
+
+    /// <summary>
+    /// Отображает отформатированную таблицу с рамками
+    /// </summary>
+    private static void ShowFormattedTable(string[] headers, string[][] rows)
+    {
+        if (rows.Length == 0) return;
+
+        // Вычисляем ширину колонок
+        var columnWidths = new int[headers.Length];
+        for (int i = 0; i < headers.Length; i++)
+        {
+            columnWidths[i] = Math.Max(headers[i].Length, 
+                rows.Max(row => i < row.Length ? row[i].Length : 0));
+            columnWidths[i] = Math.Max(columnWidths[i], 3); // Минимальная ширина
+        }
+
+        // Верхняя граница
+        Console.ForegroundColor = MenuColor;
+        Console.Write("┌");
+        for (int i = 0; i < columnWidths.Length; i++)
+        {
+            Console.Write(new string('─', columnWidths[i] + 2));
+            if (i < columnWidths.Length - 1) Console.Write("┬");
+        }
+        Console.WriteLine("┐");
         Console.ResetColor();
 
-        for (int i = 0; i < students.Count; i++)
+        // Заголовки
+        Console.ForegroundColor = HeaderColor;
+        Console.Write("│");
+        for (int i = 0; i < headers.Length; i++)
         {
-            string name = students[i];
-            int gradeCount = grades[name].Count;
+            Console.Write($" {headers[i].PadRight(columnWidths[i])} │");
+        }
+        Console.WriteLine();
+        Console.ResetColor();
+
+        // Разделитель заголовков
+        Console.ForegroundColor = MenuColor;
+        Console.Write("├");
+        for (int i = 0; i < columnWidths.Length; i++)
+        {
+            Console.Write(new string('─', columnWidths[i] + 2));
+            if (i < columnWidths.Length - 1) Console.Write("┼");
+        }
+        Console.WriteLine("┤");
+        Console.ResetColor();
+
+        // Данные
+        for (int rowIndex = 0; rowIndex < rows.Length; rowIndex++)
+        {
+            var row = rows[rowIndex];
             
-            // Цвет зависит от количества оценок
-            if (gradeCount == 0)
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-            else if (gradeCount >= 5)
-                Console.ForegroundColor = ConsoleColor.Green;
-            else
-                Console.ForegroundColor = ConsoleColor.White;
+            // Чередующиеся цвета строк для лучшей читаемости
+            Console.ForegroundColor = rowIndex % 2 == 0 ? ConsoleColor.White : ConsoleColor.Gray;
+            
+            Console.Write("│");
+            for (int i = 0; i < headers.Length; i++)
+            {
+                string cellValue = i < row.Length ? row[i] : "";
                 
-            Console.WriteLine($"  {i + 1,2}. {name.PadRight(20)} ({gradeCount} grades)");
+                // Специальная раскраска для некоторых значений
+                if (IsNumericGrade(cellValue))
+                {
+                    Console.ForegroundColor = GetGradeColor(cellValue);
+                }
+                
+                Console.Write($" {cellValue.PadRight(columnWidths[i])} │");
+                
+                // Возвращаем цвет строки
+                Console.ForegroundColor = rowIndex % 2 == 0 ? ConsoleColor.White : ConsoleColor.Gray;
+            }
+            Console.WriteLine();
         }
         Console.ResetColor();
+
+        // Нижняя граница
+        Console.ForegroundColor = MenuColor;
+        Console.Write("└");
+        for (int i = 0; i < columnWidths.Length; i++)
+        {
+            Console.Write(new string('─', columnWidths[i] + 2));
+            if (i < columnWidths.Length - 1) Console.Write("┴");
+        }
+        Console.WriteLine("┘");
+        Console.ResetColor();
+        Console.WriteLine();
+    }
+
+    /// <summary>
+    /// Проверяет, является ли строка числовой оценкой
+    /// </summary>
+    private static bool IsNumericGrade(string value)
+    {
+        return value.EndsWith("%") && double.TryParse(value.TrimEnd('%'), out _);
+    }
+
+    /// <summary>
+    /// Возвращает цвет для оценки
+    /// </summary>
+    private static ConsoleColor GetGradeColor(string gradeText)
+    {
+        if (double.TryParse(gradeText.TrimEnd('%'), out double grade))
+        {
+            return grade >= 90 ? ConsoleColor.Green :
+                   grade >= 70 ? ConsoleColor.Yellow :
+                   ConsoleColor.Red;
+        }
+        return ConsoleColor.White;
     }
 
     /// <summary>
@@ -119,28 +272,18 @@ public static class ConsoleHelper
             return;
         }
 
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"📊 Grades for {studentName}:");
-        Console.WriteLine("".PadLeft(30, '─'));
-        Console.ResetColor();
-
-        for (int i = 0; i < grades.Count; i++)
+        var gradeData = grades.Select((grade, index) => new
         {
-            int grade = grades[i];
-            
-            // Цвет оценки зависит от значения
-            if (grade >= 90)
-                Console.ForegroundColor = ConsoleColor.Green;
-            else if (grade >= 70)
-                Console.ForegroundColor = ConsoleColor.Yellow;
-            else
-                Console.ForegroundColor = ConsoleColor.Red;
-                
-            Console.WriteLine($"  Grade {i + 1}: {grade}%");
-        }
+            No = index + 1,
+            Grade = grade + "%",
+            Status = grade >= 90 ? "Excellent" : 
+                    grade >= 70 ? "Good" : 
+                    "Needs Improvement"
+        });
+
+        ShowTable(gradeData, $"📊 Grades for {studentName}");
         
-        Console.ResetColor();
-        Console.WriteLine($"  Total grades: {grades.Count}");
+        ShowInfo($"Total grades: {grades.Count} | Average: {grades.Average():F1}%");
     }
 
     /// <summary>
@@ -154,16 +297,14 @@ public static class ConsoleHelper
             return;
         }
 
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"🔍 Found {matches.Count} student(s) containing '{searchTerm}':");
-        Console.ResetColor();
-        
-        for (int i = 0; i < matches.Count; i++)
+        var searchResults = matches.Select((name, index) => new
         {
-            Console.ForegroundColor = SuccessColor;
-            Console.WriteLine($"  • {matches[i]}");
-        }
-        Console.ResetColor();
+            No = index + 1,
+            StudentName = name,
+            MatchType = name.Equals(searchTerm, StringComparison.OrdinalIgnoreCase) ? "Exact" : "Partial"
+        });
+
+        ShowTable(searchResults, $"🔍 Found {matches.Count} student(s) containing '{searchTerm}'");
     }
 
     /// <summary>
@@ -171,24 +312,21 @@ public static class ConsoleHelper
     /// </summary>
     public static void ShowTopStudents(List<(string name, double average)> topStudents)
     {
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine("🏆 Top Students (average 90+):");
-        Console.WriteLine("".PadLeft(35, '─'));
-        Console.ResetColor();
-
         if (topStudents.Count == 0)
         {
             ShowWarning("No students with 90+ average yet.");
             return;
         }
 
-        for (int i = 0; i < topStudents.Count; i++)
+        var topData = topStudents.Select((student, index) => new
         {
-            var student = topStudents[i];
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"  {i + 1}. {student.name} - {student.average:F1}%");
-        }
-        Console.ResetColor();
+            Rank = index + 1,
+            StudentName = student.name,
+            Average = student.average.ToString("F1") + "%",
+            Achievement = "🏆 Excellent"
+        });
+
+        ShowTable(topData, "🏆 Top Students (average 90+)");
     }
 
     /// <summary>
@@ -196,24 +334,21 @@ public static class ConsoleHelper
     /// </summary>
     public static void ShowAboveAverageStudents(double classAverage, List<(string name, double average)> students)
     {
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"📈 Students Above Class Average ({classAverage:F1}%):");
-        Console.WriteLine("".PadLeft(45, '─'));
-        Console.ResetColor();
-
         if (students.Count == 0)
         {
             ShowWarning("No students above class average.");
             return;
         }
 
-        for (int i = 0; i < students.Count; i++)
+        var aboveAverageData = students.Select((student, index) => new
         {
-            var student = students[i];
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"  • {student.name} - {student.average:F1}%");
-        }
-        Console.ResetColor();
+            No = index + 1,
+            StudentName = student.name,
+            Average = student.average.ToString("F1") + "%",
+            Difference = "+" + (student.average - classAverage).ToString("F1") + "%"
+        });
+
+        ShowTable(aboveAverageData, $"📈 Students Above Class Average ({classAverage:F1}%)");
     }
 
     /// <summary>
@@ -223,51 +358,38 @@ public static class ConsoleHelper
         int highestGrade, int lowestGrade, string topPerformer, double topAverage,
         List<(string name, double average, int gradeCount)> allStudents)
     {
-        Console.ForegroundColor = HeaderColor;
-        Console.WriteLine("📈 Class Report");
+        ShowInfo("📈 Class Report");
         Console.WriteLine("".PadLeft(50, '═'));
-        Console.ResetColor();
 
-        // Основная статистика
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"📊 Class Statistics:");
-        Console.ResetColor();
-        Console.WriteLine($"   Total students: {totalStudents}");
-        Console.WriteLine($"   Total grades: {totalGrades}");
-        Console.WriteLine($"   Class average: {classAverage:F2}%");
-        Console.WriteLine($"   Highest grade: {highestGrade}%");
-        Console.WriteLine($"   Lowest grade: {lowestGrade}%");
-        Console.WriteLine();
-
-        // Лучший студент
-        if (!string.IsNullOrEmpty(topPerformer))
+        // Основная статистика в виде таблицы
+        var statistics = new[]
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"🏆 Top Performer: {topPerformer} ({topAverage:F1}%)");
-            Console.ResetColor();
-        }
+            new { Metric = "Total Students", Value = totalStudents.ToString() },
+            new { Metric = "Total Grades", Value = totalGrades.ToString() },
+            new { Metric = "Class Average", Value = classAverage.ToString("F2") + "%" },
+            new { Metric = "Highest Grade", Value = highestGrade.ToString() + "%" },
+            new { Metric = "Lowest Grade", Value = lowestGrade.ToString() + "%" },
+            new { Metric = "Top Performer", Value = !string.IsNullOrEmpty(topPerformer) ? $"{topPerformer} ({topAverage:F1}%)" : "N/A" }
+        };
 
-        // Индивидуальные средние
-        Console.WriteLine();
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine("📋 Individual Averages:");
-        Console.ResetColor();
-        
-        for (int i = 0; i < allStudents.Count; i++)
+        ShowTable(statistics, "📊 Class Statistics");
+
+        // Индивидуальные средние в таблице
+        if (allStudents.Count > 0)
         {
-            var student = allStudents[i];
-            
-            // Цвет зависит от среднего балла
-            if (student.average >= 90)
-                Console.ForegroundColor = ConsoleColor.Green;
-            else if (student.average >= 70)
-                Console.ForegroundColor = ConsoleColor.Yellow;
-            else
-                Console.ForegroundColor = ConsoleColor.Red;
-                
-            Console.WriteLine($"   {student.name}: {student.average:F1}% ({student.gradeCount} grades)");
+            var studentData = allStudents.Select((student, index) => new
+            {
+                Rank = index + 1,
+                StudentName = student.name,
+                Average = student.average.ToString("F1") + "%",
+                GradeCount = student.gradeCount,
+                Performance = student.average >= 90 ? "🏆 Excellent" :
+                             student.average >= 70 ? "👍 Good" :
+                             "📈 Improving"
+            });
+
+            ShowTable(studentData, "📋 Individual Performance");
         }
-        Console.ResetColor();
     }
 
     /// <summary>
@@ -360,8 +482,18 @@ public static class ConsoleHelper
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.WriteLine($"\n{message}");
         Console.ResetColor();
-        Console.ReadKey();
-        Console.Clear();
+        
+        try
+        {
+            Console.ReadKey();
+            Console.Clear();
+        }
+        catch (InvalidOperationException)
+        {
+            // Console input is redirected, just wait a moment and continue
+            Console.WriteLine("(Input redirected - continuing automatically)");
+            System.Threading.Thread.Sleep(1000);
+        }
     }
 
     /// <summary>
