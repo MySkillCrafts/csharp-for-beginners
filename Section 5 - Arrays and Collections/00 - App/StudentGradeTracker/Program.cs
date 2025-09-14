@@ -1,613 +1,488 @@
-﻿// Program.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-public static class Program
+// ═══════════════════════════════════════════════════════════════════════════════════
+// STUDENT GRADE TRACKER - PROGRESSIVE BUILD FOR SECTION 5
+// ═══════════════════════════════════════════════════════════════════════════════════
+// This application is built progressively through 8 lessons:
+// 
+// LESSON 1: Arrays vs Lists - Basic concepts and simple array example
+// LESSON 2: Generics Made Simple - Understanding List<T> and Dictionary<K,V>  
+// LESSON 3: List<T> Essentials - Add, Remove, Show operations
+// LESSON 4: Tidy Lists - Sort and basic find operations (no LINQ)
+// LESSON 5: Dictionaries for Grades - Key-value pairs for student grades
+// LESSON 6: Gentle Validation - Input validation and error prevention
+// LESSON 7: LINQ Lite I - Simple filtering and sorting with Where/OrderBy
+// LESSON 8: LINQ Lite II - Basic reports with Average and simple aggregations
+// ═══════════════════════════════════════════════════════════════════════════════════
+
+class Program
 {
-    public static void Main()
+    // =============================================================================
+    // LESSON 1: Arrays vs Lists - When Each Makes Sense
+    // =============================================================================
+    // We start by showing a simple array example, then explain why List<T> is better
+    // for our growing collection of students
+    
+    // Simple fixed array example (LESSON 1)
+    static string[] fixedSubjects = { "Math", "Science", "English", "History" };
+    
+    // =============================================================================
+    // LESSON 2: Generics Made Simple - What <T> Means  
+    // =============================================================================
+    // Here we introduce List<string> for student names and Dictionary<string, List<int>>
+    // for storing grades. We explain the <T> syntax in simple terms.
+    
+    // List<string> - "a list that holds names" (LESSON 2)
+    static List<string> studentNames = new List<string>();
+    
+    // Dictionary<string, List<int>> - "by student name, store their grades" (LESSON 2)  
+    static Dictionary<string, List<int>> studentGrades = new Dictionary<string, List<int>>();
+    
+    static void Main()
     {
-        ConsoleUI.ShowHeader("Welcome to C# Collections Demo");
-        ConsoleUI.ShowInfo("Starting Student Grades Tracker...");
-        Console.WriteLine();
-
-        StudentGradesTracker.Run();
-    }
-
-}
-
-public readonly record struct Student(string Name, int[] Grades);
-
-internal static class DemoData
-{
-    // Меняйте имена/оценки здесь. Hot Reload подхватит изменение тела метода.
-    public static Student[] GetStudents() => new[]
-    {
-        new Student("Alice Johnson V1", new[] { 92, 85, 88, 95 }),
-        new Student("Bob d Lee",       new[] { 78, 88, 81, 90 }),
-        new Student("Carla Gomez",   new[] { 95, 100, 97, 98 }),
-        new Student("David Smith",   new[] { 85, 92, 88, 91 })
-    };
-}
-
-internal static class CollectionsDemo
-{
-    // 1. Arrays & Lists: Two Tools for Different Jobs
-    public static List<string> GetStudentNames()
-    {
-        var names = new List<string>();
-        names.Add("Alice V3 Johnson");
-        names.Add("Bob Lee");
-        names.Add("Carla Gomez");
-        names.Add("David Smith");
-        return names;
-    }
-
-    // 2. Generics Made Simple: What <T> Means
-    public static List<int> GetGrades()
-    {
-        var grades = new List<int> { 85, 92, 78, 95, 88, 91, 87, 93 };
-        return grades;
-    }
-
-    // 3. List<T> Essentials: Add, Remove, Show
-    public static List<string> GetSubjects()
-    {
-        var subjects = new List<string>();
-        subjects.Add("Mathematics");
-        subjects.Add("Physics");
-        subjects.Add("Chemistry");
-        subjects.Add("Biology");
-        subjects.Remove("Biology"); // Удаляем предмет
-        subjects.Add("Computer Science"); // Добавляем новый
-        return subjects;
-    }
-
-    // 4. Tidy Lists: Sort and Basic Find (No LINQ Yet)
-    public static List<int> GetSortedGrades()
-    {
-        var grades = new List<int> { 85, 92, 78, 95, 88, 91, 87, 93 };
-        grades.Sort(); // Сортируем по возрастанию
-        return grades;
-    }
-
-    // 5. Dictionaries for Grades: Keys and Values
-    public static Dictionary<string, int> GetStudentAverages()
-    {
-        var averages = new Dictionary<string, int>();
-        averages["Alice"] = 90;
-        averages["Bob"] = 85;
-        averages["Carla"] = 95;
-        averages["David"] = 88;
-        return averages;
-    }
-
-    // 6. Gentle Validation That Prevents Mistakes
-    public static List<int> GetValidatedGrades()
-    {
-        var grades = new List<int> { 85, 92, 78, 95, 88, 91, 87, 93, 105, -5 }; // Есть невалидные оценки
-        var validGrades = new List<int>();
-
-        foreach (var grade in grades)
+        ConsoleHelper.ShowAppTitle("Student Grade Tracker - Section 5");
+        
+        // Add some demo data to make the app interesting from the start
+        AddInitialData();
+        
+        // Main menu loop
+        bool running = true;
+        while (running)
         {
-            if (grade >= 0 && grade <= 100) // Валидация: оценки от 0 до 100
-            {
-                validGrades.Add(grade);
-            }
-        }
-
-        return validGrades;
-    }
-
-    // 7. LINQ Lite I: Filter and Sort with One-Liners
-    public static List<int> GetHighGrades()
-    {
-        var grades = new List<int> { 85, 92, 78, 95, 88, 91, 87, 93 };
-        // Фильтруем только высокие оценки (>= 90)
-        return grades.Where(g => g >= 90).ToList();
-    }
-
-    // 8. LINQ Lite II: Tiny Reports with Averages
-    public static double GetAverageGrade()
-    {
-        var grades = new List<int> { 85, 92, 78, 95, 88, 91, 87, 93 };
-        return grades.Average();
-    }
-}
-
-internal static class ConsoleUI
-{
-    // Цвета для консоли
-    private static readonly ConsoleColor HeaderColor = ConsoleColor.Cyan;
-    private static readonly ConsoleColor SuccessColor = ConsoleColor.Green;
-    private static readonly ConsoleColor ErrorColor = ConsoleColor.Red;
-    private static readonly ConsoleColor WarningColor = ConsoleColor.Yellow;
-    private static readonly ConsoleColor InfoColor = ConsoleColor.Blue;
-    private static readonly ConsoleColor DataColor = ConsoleColor.White;
-    private static readonly ConsoleColor AccentColor = ConsoleColor.Magenta;
-
-    public static void ShowHeader(string title)
-    {
-        Console.Clear();
-        Console.ForegroundColor = HeaderColor;
-        Console.WriteLine("╔" + new string('═', title.Length + 2) + "╗");
-        Console.WriteLine("║ " + title + " ║");
-        Console.WriteLine("╚" + new string('═', title.Length + 2) + "╝");
-        Console.ResetColor();
-        Console.WriteLine();
-    }
-
-    public static void ShowSuccess(string message)
-    {
-        Console.ForegroundColor = SuccessColor;
-        Console.WriteLine($"✅ {message}");
-        Console.ResetColor();
-    }
-
-    public static void ShowError(string message)
-    {
-        Console.ForegroundColor = ErrorColor;
-        Console.WriteLine($"❌ {message}");
-        Console.ResetColor();
-    }
-
-    public static void ShowWarning(string message)
-    {
-        Console.ForegroundColor = WarningColor;
-        Console.WriteLine($"⚠️  {message}");
-        Console.ResetColor();
-    }
-
-    public static void ShowInfo(string message)
-    {
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"ℹ️  {message}");
-        Console.ResetColor();
-    }
-
-    public static void ShowTable<T>(IEnumerable<T> data, string[] headers, Func<T, string[]> rowSelector)
-    {
-        if (!data.Any())
-        {
-            ShowWarning("No data to display");
-            return;
-        }
-
-        var rows = data.Select(rowSelector).ToList();
-        var columnWidths = new int[headers.Length];
-
-        // Вычисляем ширину колонок
-        for (int i = 0; i < headers.Length; i++)
-        {
-            columnWidths[i] = Math.Max(headers[i].Length, rows.Max(row => row[i].Length));
-        }
-
-        // Верхняя граница
-        Console.ForegroundColor = AccentColor;
-        Console.Write("┌");
-        for (int i = 0; i < columnWidths.Length; i++)
-        {
-            Console.Write(new string('─', columnWidths[i] + 2));
-            if (i < columnWidths.Length - 1) Console.Write("┬");
-        }
-        Console.WriteLine("┐");
-        Console.ResetColor();
-
-        // Заголовки
-        Console.ForegroundColor = HeaderColor;
-        Console.Write("│");
-        for (int i = 0; i < headers.Length; i++)
-        {
-            Console.Write($" {headers[i].PadRight(columnWidths[i])} │");
-        }
-        Console.WriteLine();
-        Console.ResetColor();
-
-        // Разделитель
-        Console.ForegroundColor = AccentColor;
-        Console.Write("├");
-        for (int i = 0; i < columnWidths.Length; i++)
-        {
-            Console.Write(new string('─', columnWidths[i] + 2));
-            if (i < columnWidths.Length - 1) Console.Write("┼");
-        }
-        Console.WriteLine("┤");
-        Console.ResetColor();
-
-        // Данные
-        Console.ForegroundColor = DataColor;
-        foreach (var row in rows)
-        {
-            Console.Write("│");
-            for (int i = 0; i < row.Length; i++)
-            {
-                Console.Write($" {row[i].PadRight(columnWidths[i])} │");
-            }
+            ConsoleHelper.ShowMainMenu();
+            string choice = Console.ReadLine() ?? "";
             Console.WriteLine();
-        }
-        Console.ResetColor();
-
-        // Нижняя граница
-        Console.ForegroundColor = AccentColor;
-        Console.Write("└");
-        for (int i = 0; i < columnWidths.Length; i++)
-        {
-            Console.Write(new string('─', columnWidths[i] + 2));
-            if (i < columnWidths.Length - 1) Console.Write("┴");
-        }
-        Console.WriteLine("┘");
-        Console.ResetColor();
-    }
-
-    public static void ShowProgressBar(int current, int total, string label = "")
-    {
-        if (total == 0) return;
-
-        var percentage = (double)current / total;
-        var barLength = 30;
-        var filledLength = (int)(barLength * percentage);
-
-        Console.ForegroundColor = InfoColor;
-        Console.Write($"{label} [");
-        Console.ForegroundColor = SuccessColor;
-        Console.Write(new string('█', filledLength));
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.Write(new string('░', barLength - filledLength));
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine($"] {percentage:P1} ({current}/{total})");
-        Console.ResetColor();
-    }
-
-    public static void ShowMenu(string[] options)
-    {
-        Console.ForegroundColor = AccentColor;
-        Console.WriteLine("┌─ Menu ─────────────────────────────────────────┐");
-        for (int i = 0; i < options.Length; i++)
-        {
-            Console.WriteLine($"│ {i + 1,2}. {options[i].PadRight(40)} │");
-        }
-        Console.WriteLine("└───────────────────────────────────────────────┘");
-        Console.ResetColor();
-    }
-
-    public static void ShowStats(Dictionary<string, object> stats)
-    {
-        Console.ForegroundColor = InfoColor;
-        Console.WriteLine("📊 Statistics:");
-        Console.ResetColor();
-
-        foreach (var stat in stats)
-        {
-            Console.ForegroundColor = DataColor;
-            Console.Write($"  {stat.Key}: ");
-            Console.ForegroundColor = AccentColor;
-            Console.WriteLine(stat.Value);
-            Console.ResetColor();
-        }
-    }
-
-    public static string ReadInput(string prompt, ConsoleColor promptColor = ConsoleColor.White)
-    {
-        Console.ForegroundColor = promptColor;
-        Console.Write(prompt);
-        Console.ResetColor();
-        return Console.ReadLine() ?? "";
-    }
-
-    public static void WaitForKey(string message = "Press any key to continue...")
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.WriteLine(message);
-        Console.ResetColor();
-        Console.ReadKey();
-    }
-}
-
-internal static class StudentGradesTracker
-{
-    private static readonly List<string> students = new();
-    private static readonly Dictionary<string, List<int>> grades = new(StringComparer.OrdinalIgnoreCase);
-
-    public static void Run()
-    {
-        // Добавляем демо-данные
-        AddDemoData();
-
-        while (true)
-        {
-            ConsoleUI.ShowHeader("Student Grades Tracker");
-
-            var menuOptions = new[]
-            {
-                "Add student",
-                "Remove student",
-                "Show all students",
-                "Sort by name (A→Z)",
-                "Sort by name (Z→A)",
-                "Find by name part",
-                "Add grade to student",
-                "Show grades for student",
-                "Show student average",
-                "Show class average",
-                "Show top performer",
-                "Show detailed report",
-                "Exit"
-            };
-
-            ConsoleUI.ShowMenu(menuOptions);
-
-            var choice = ConsoleUI.ReadInput("Choose option: ", ConsoleColor.Yellow);
-            Console.WriteLine();
-
+            
             switch (choice)
             {
-                case "1": AddStudent(); break;
-                case "2": RemoveStudent(); break;
-                case "3": ShowAllStudents(); break;
-                case "4": SortStudentsAZ(); break;
-                case "5": SortStudentsZA(); break;
-                case "6": FindByNamePart(); break;
-                case "7": AddGradeToStudent(); break;
-                case "8": ShowGradesForStudent(); break;
-                case "9": ShowStudentAverage(); break;
-                case "10": ShowClassAverage(); break;
-                case "11": ShowTopPerformer(); break;
-                case "12": ShowDetailedReport(); break;
-                case "13": case "0": return;
-                default: ConsoleUI.ShowError("Unknown option. Try again."); break;
+                case "1":
+                    AddStudent();           // LESSON 3
+                    break;
+                case "2":
+                    RemoveStudent();        // LESSON 3  
+                    break;
+                case "3":
+                    ShowAllStudents();      // LESSON 3
+                    break;
+                case "4":
+                    SortStudentsAZ();       // LESSON 4
+                    break;
+                case "5":
+                    SortStudentsZA();       // LESSON 4
+                    break;
+                case "6":
+                    FindStudentByName();    // LESSON 4
+                    break;
+                case "7":
+                    AddGrade();             // LESSON 5
+                    break;
+                case "8":
+                    ShowStudentGrades();    // LESSON 5
+                    break;
+                case "9":
+                    ShowStudentAverage();   // LESSON 8
+                    break;
+                case "10":
+                    ShowClassReport();      // LESSON 8
+                    break;
+                case "11":
+                    FindTopStudents();      // LESSON 7
+                    break;
+                case "12":
+                    FindStudentsAboveAverage(); // LESSON 7
+                    break;
+                case "0":
+                    running = false;
+                    break;
+                default:
+                    ConsoleHelper.ShowError("Invalid choice. Please try again.");
+                    break;
             }
-
-            ConsoleUI.WaitForKey();
+            
+            if (running)
+            {
+                ConsoleHelper.WaitForKeyPress();
+            }
         }
+        
+        ConsoleHelper.ShowSuccess("Thanks for using Student Grade Tracker!");
     }
-
-    private static void AddDemoData()
+    
+    // =============================================================================
+    // LESSON 1: Arrays vs Lists demonstration
+    // =============================================================================
+    static void ShowArrayExample()
     {
-        students.AddRange(new[] { "Alice Johnson", "Bob Lee", "Carla Gomez", "David Smith" });
-        grades["Alice Johnson"] = new List<int> { 92, 85, 88, 95 };
-        grades["Bob Lee"] = new List<int> { 78, 88, 81, 90 };
-        grades["Carla Gomez"] = new List<int> { 95, 100, 97, 98 };
-        grades["David Smith"] = new List<int> { 85, 92, 88, 91 };
+        // This shows the limitation of arrays - fixed size (LESSON 1)
+        ConsoleHelper.ShowInfo("Our subjects (using array):");
+        for (int i = 0; i < fixedSubjects.Length; i++)
+        {
+            Console.WriteLine($"  {i + 1}. {fixedSubjects[i]}");
+        }
+        Console.WriteLine($"Array size is fixed at: {fixedSubjects.Length}");
     }
-
-    private static void AddStudent()
+    
+    // =============================================================================
+    // LESSON 3: List<T> Essentials - Add, Remove, Show
+    // =============================================================================
+    
+    static void AddStudent()
     {
-        var name = ConsoleUI.ReadInput("Enter student name: ");
+        string name = ConsoleHelper.GetInput("Enter student name: ");
+        
+        // LESSON 6: Gentle validation - prevent empty names
         if (string.IsNullOrWhiteSpace(name))
         {
-            ConsoleUI.ShowError("Name cannot be empty.");
+            ConsoleHelper.ShowError("Name cannot be empty!");
             return;
         }
-
-        if (ContainsStudent(name))
+        
+        // LESSON 6: Gentle validation - prevent duplicate names  
+        if (StudentExists(name))
         {
-            ConsoleUI.ShowWarning("This student already exists.");
+            ConsoleHelper.ShowError("Student already exists!");
             return;
         }
-
-        students.Add(name);
-        grades[name] = new List<int>();
-        ConsoleUI.ShowSuccess($"Added: {name}");
+        
+        // LESSON 3: Add to list
+        studentNames.Add(name);
+        // LESSON 5: Initialize empty grade list for this student
+        studentGrades[name] = new List<int>();
+        
+        ConsoleHelper.ShowSuccess($"Added student: {name}");
     }
-
-    private static void RemoveStudent()
+    
+    static void RemoveStudent()
     {
-        var name = ConsoleUI.ReadInput("Enter student name to remove: ");
-        var canonical = FindStudentCanonical(name);
-        if (canonical is null)
+        if (studentNames.Count == 0)
         {
-            ConsoleUI.ShowError("Student not found.");
+            ConsoleHelper.ShowError("No students to remove!");
             return;
         }
-
-        students.RemoveAll(s => s.Equals(canonical, StringComparison.OrdinalIgnoreCase));
-        grades.Remove(canonical);
-        ConsoleUI.ShowSuccess($"Removed: {canonical}");
-    }
-
-    private static void ShowAllStudents()
-    {
-        if (students.Count == 0)
+        
+        string name = ConsoleHelper.GetInput("Enter student name to remove: ");
+        
+        // LESSON 3: Remove from list (using Remove method)
+        bool removed = studentNames.Remove(name);
+        
+        if (removed)
         {
-            ConsoleUI.ShowWarning("No students yet.");
-            return;
+            // LESSON 5: Also remove their grades
+            studentGrades.Remove(name);
+            ConsoleHelper.ShowSuccess($"Removed student: {name}");
         }
-
-        var studentData = students.Select((name, index) => new
+        else
         {
-            Index = index + 1,
-            Name = name,
-            GradeCount = grades[name].Count,
-            Average = grades[name].Count > 0 ? grades[name].Average().ToString("F1") : "N/A"
-        });
-
-        ConsoleUI.ShowTable(studentData,
-            new[] { "#", "Name", "Grades", "Average" },
-            s => new[] { s.Index.ToString(), s.Name, s.GradeCount.ToString(), s.Average });
-    }
-
-    private static void SortStudentsAZ()
-    {
-        if (students.Count == 0)
-        {
-            ConsoleUI.ShowWarning("No students to sort.");
-            return;
-        }
-
-        students.Sort(StringComparer.OrdinalIgnoreCase);
-        ConsoleUI.ShowSuccess("Sorted A→Z.");
-    }
-
-    private static void SortStudentsZA()
-    {
-        if (students.Count == 0)
-        {
-            ConsoleUI.ShowWarning("No students to sort.");
-            return;
-        }
-
-        var sorted = students.OrderByDescending(s => s, StringComparer.OrdinalIgnoreCase).ToList();
-        students.Clear();
-        students.AddRange(sorted);
-        ConsoleUI.ShowSuccess("Sorted Z→A.");
-    }
-
-    private static void FindByNamePart()
-    {
-        if (students.Count == 0)
-        {
-            ConsoleUI.ShowWarning("No students yet.");
-            return;
-        }
-
-        var part = ConsoleUI.ReadInput("Enter part of the name: ");
-        var matches = students.Where(s => s.Contains(part, StringComparison.OrdinalIgnoreCase)).ToList();
-
-        if (matches.Count == 0)
-        {
-            ConsoleUI.ShowWarning("No matches found.");
-            return;
-        }
-
-        ConsoleUI.ShowInfo($"Found {matches.Count} match(es):");
-        foreach (var match in matches)
-        {
-            ConsoleUI.ShowSuccess($"- {match}");
+            ConsoleHelper.ShowError("Student not found!");
         }
     }
-
-    private static void AddGradeToStudent()
+    
+    static void ShowAllStudents()
     {
-        var name = ConsoleUI.ReadInput("Student name: ");
-        var canonical = FindStudentCanonical(name);
-        if (canonical is null)
+        // LESSON 3: Check Count property and display list contents
+        ConsoleHelper.ShowStudentList(studentNames, studentGrades);
+    }
+    
+    // =============================================================================
+    // LESSON 4: Tidy Lists - Sort and Basic Find (No LINQ Yet)
+    // =============================================================================
+    
+    static void SortStudentsAZ()
+    {
+        if (studentNames.Count == 0)
         {
-            ConsoleUI.ShowError("Student not found.");
+            ConsoleHelper.ShowError("No students to sort!");
             return;
         }
-
-        var gradeInput = ConsoleUI.ReadInput("Enter grade (0-100): ");
+        
+        // LESSON 4: Simple Sort() method - case-insensitive
+        studentNames.Sort(StringComparer.OrdinalIgnoreCase);
+        ConsoleHelper.ShowSuccess("Students sorted A→Z");
+        ShowAllStudents();
+    }
+    
+    static void SortStudentsZA()
+    {
+        if (studentNames.Count == 0)
+        {
+            ConsoleHelper.ShowError("No students to sort!");
+            return;
+        }
+        
+        // LESSON 4: Sort then reverse for Z→A
+        studentNames.Sort(StringComparer.OrdinalIgnoreCase);
+        studentNames.Reverse();
+        ConsoleHelper.ShowSuccess("Students sorted Z→A");
+        ShowAllStudents();
+    }
+    
+    static void FindStudentByName()
+    {
+        if (studentNames.Count == 0)
+        {
+            ConsoleHelper.ShowError("No students to search!");
+            return;
+        }
+        
+        string searchTerm = ConsoleHelper.GetInput("Enter part of student name: ");
+        
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            ConsoleHelper.ShowError("Search term cannot be empty!");
+            return;
+        }
+        
+        // LESSON 4: Simple search using Contains (no LINQ yet)
+        List<string> matches = new List<string>();
+        
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            if (studentNames[i].Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+            {
+                matches.Add(studentNames[i]);
+            }
+        }
+        
+        ConsoleHelper.ShowSearchResults(searchTerm, matches);
+    }
+    
+    // =============================================================================
+    // LESSON 5: Dictionaries for Grades - Keys and Values
+    // =============================================================================
+    
+    static void AddGrade()
+    {
+        if (studentNames.Count == 0)
+        {
+            ConsoleHelper.ShowError("No students yet. Add students first!");
+            return;
+        }
+        
+        string name = ConsoleHelper.GetInput("Enter student name: ");
+        
+        // LESSON 5: Check if key exists in dictionary using ContainsKey
+        if (!studentGrades.ContainsKey(name))
+        {
+            ConsoleHelper.ShowError("Student not found!");
+            return;
+        }
+        
+        string gradeInput = ConsoleHelper.GetInput("Enter grade (0-100): ");
+        
+        // LESSON 6: Gentle validation using TryParse (from Section 4)
         if (!int.TryParse(gradeInput, out int grade))
         {
-            ConsoleUI.ShowError("Please enter a valid number.");
+            ConsoleHelper.ShowError("Please enter a valid number!");
             return;
         }
-
+        
+        // LESSON 6: Gentle validation - grade range
         if (grade < 0 || grade > 100)
         {
-            ConsoleUI.ShowError("Grade must be between 0 and 100.");
+            ConsoleHelper.ShowError("Grade must be between 0 and 100!");
             return;
         }
-
-        grades[canonical].Add(grade);
-        ConsoleUI.ShowSuccess($"Added grade {grade} to {canonical}.");
+        
+        // LESSON 5: Add to the list of grades for this student
+        studentGrades[name].Add(grade);
+        ConsoleHelper.ShowSuccess($"Added grade {grade} for {name}");
     }
-
-    private static void ShowGradesForStudent()
+    
+    static void ShowStudentGrades()
     {
-        var name = ConsoleUI.ReadInput("Student name: ");
-        var canonical = FindStudentCanonical(name);
-        if (canonical is null)
+        if (studentNames.Count == 0)
         {
-            ConsoleUI.ShowError("Student not found.");
+            ConsoleHelper.ShowError("No students yet!");
             return;
         }
-
-        var studentGrades = grades[canonical];
-        if (studentGrades.Count == 0)
+        
+        string name = ConsoleHelper.GetInput("Enter student name: ");
+        
+        // LESSON 5: Safe dictionary access using TryGetValue
+        if (studentGrades.TryGetValue(name, out List<int>? grades))
         {
-            ConsoleUI.ShowWarning($"{canonical} has no grades yet.");
-            return;
+            ConsoleHelper.ShowStudentGrades(name, grades);
         }
-
-        ConsoleUI.ShowInfo($"{canonical}'s grades:");
-        ConsoleUI.ShowTable(studentGrades.Select((g, i) => new { Index = i + 1, Grade = g }),
-            new[] { "#", "Grade" },
-            g => new[] { g.Index.ToString(), g.Grade.ToString() });
+        else
+        {
+            ConsoleHelper.ShowError("Student not found!");
+        }
     }
-
-    private static void ShowStudentAverage()
+    
+    // =============================================================================
+    // LESSON 7: LINQ Lite I - Filter and Sort with One-Liners
+    // =============================================================================
+    
+    static void FindTopStudents()
     {
-        var name = ConsoleUI.ReadInput("Student name: ");
-        var canonical = FindStudentCanonical(name);
-        if (canonical is null)
+        if (studentNames.Count == 0)
         {
-            ConsoleUI.ShowError("Student not found.");
+            ConsoleHelper.ShowError("No students yet!");
             return;
         }
-
-        var studentGrades = grades[canonical];
-        if (studentGrades.Count == 0)
-        {
-            ConsoleUI.ShowWarning($"{canonical} has no grades to average.");
-            return;
-        }
-
-        var average = studentGrades.Average();
-        ConsoleUI.ShowInfo($"{canonical}'s average: {average:F2}");
-
-        // Показываем прогресс-бар
-        ConsoleUI.ShowProgressBar((int)average, 100, "Average");
+        
+        // LESSON 7: Simple LINQ - Where to filter, OrderByDescending to sort
+        var topStudents = studentNames
+            .Where(name => studentGrades[name].Count > 0 && studentGrades[name].Average() >= 90)
+            .OrderByDescending(name => studentGrades[name].Average())
+            .Select(name => (name, studentGrades[name].Average()))
+            .ToList();
+        
+        ConsoleHelper.ShowTopStudents(topStudents);
     }
-
-    private static void ShowClassAverage()
+    
+    static void FindStudentsAboveAverage()
     {
-        var allGrades = grades.Values.SelectMany(g => g).ToList();
+        if (studentNames.Count == 0)
+        {
+            ConsoleHelper.ShowError("No students yet!");
+            return;
+        }
+        
+        // LESSON 8: Calculate class average first
+        var allGrades = studentGrades.Values.SelectMany(grades => grades).ToList();
+        
         if (allGrades.Count == 0)
         {
-            ConsoleUI.ShowWarning("No grades in class yet.");
+            ConsoleHelper.ShowError("No grades entered yet!");
             return;
         }
-
-        var average = allGrades.Average();
-        ConsoleUI.ShowInfo($"Class average: {average:F2}");
-        ConsoleUI.ShowProgressBar((int)average, 100, "Class Average");
-    }
-
-    private static void ShowTopPerformer()
-    {
-        var performers = grades
-            .Where(kvp => kvp.Value.Count > 0)
-            .Select(kvp => new { Name = kvp.Key, Avg = kvp.Value.Average() })
-            .OrderByDescending(x => x.Avg)
-            .Take(3)
-            .Select((p, index) => new { Rank = index + 1, Name = p.Name, Average = p.Avg })
+        
+        double classAverage = allGrades.Average();
+        
+        // LESSON 7: LINQ Where to filter students above average
+        var aboveAverageStudents = studentNames
+            .Where(name => studentGrades[name].Count > 0 && studentGrades[name].Average() > classAverage)
+            .OrderByDescending(name => studentGrades[name].Average())
+            .Select(name => (name, studentGrades[name].Average()))
             .ToList();
-
-        if (performers.Count == 0)
-        {
-            ConsoleUI.ShowWarning("No grades to determine top performers.");
-            return;
-        }
-
-        ConsoleUI.ShowInfo("Top Performers:");
-        ConsoleUI.ShowTable(performers,
-            new[] { "Rank", "Name", "Average" },
-            p => new[] { p.Rank.ToString(), p.Name, p.Average.ToString("F2") });
+        
+        ConsoleHelper.ShowAboveAverageStudents(classAverage, aboveAverageStudents);
     }
-
-    private static void ShowDetailedReport()
+    
+    // =============================================================================
+    // LESSON 8: LINQ Lite II - Tiny Reports with Averages
+    // =============================================================================
+    
+    static void ShowStudentAverage()
     {
-        if (students.Count == 0)
+        if (studentNames.Count == 0)
         {
-            ConsoleUI.ShowWarning("No students to report on.");
+            ConsoleHelper.ShowError("No students yet!");
             return;
         }
-
-        var stats = new Dictionary<string, object>
+        
+        string name = ConsoleHelper.GetInput("Enter student name: ");
+        
+        if (studentGrades.TryGetValue(name, out List<int>? grades))
         {
-            ["Total Students"] = students.Count,
-            ["Total Grades"] = grades.Values.Sum(g => g.Count),
-            ["Class Average"] = grades.Values.SelectMany(g => g).DefaultIfEmpty(0).Average().ToString("F2"),
-            ["Highest Grade"] = grades.Values.SelectMany(g => g).DefaultIfEmpty(0).Max(),
-            ["Lowest Grade"] = grades.Values.SelectMany(g => g).DefaultIfEmpty(0).Min()
-        };
-
-        ConsoleUI.ShowStats(stats);
+            if (grades.Count == 0)
+            {
+                ConsoleHelper.ShowError($"{name} has no grades to average.");
+            }
+            else
+            {
+                // LESSON 8: Simple Average() method
+                double average = grades.Average();
+                ConsoleHelper.ShowStudentAverage(name, average, grades);
+            }
+        }
+        else
+        {
+            ConsoleHelper.ShowError("Student not found!");
+        }
     }
-
-
-    private static bool ContainsStudent(string name)
-        => students.Any(s => s.Equals(name, StringComparison.OrdinalIgnoreCase));
-
-    private static string? FindStudentCanonical(string name)
-        => students.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase));
+    
+    static void ShowClassReport()
+    {
+        if (studentNames.Count == 0)
+        {
+            ConsoleHelper.ShowError("No students yet!");
+            return;
+        }
+        
+        // LESSON 8: Calculate various statistics using LINQ
+        var allGrades = studentGrades.Values.SelectMany(grades => grades).ToList();
+        
+        if (allGrades.Count == 0)
+        {
+            ConsoleHelper.ShowError("No grades entered yet!");
+            return;
+        }
+        
+        // Basic statistics
+        double classAverage = allGrades.Average();
+        int totalGrades = allGrades.Count;
+        int highestGrade = allGrades.Max();
+        int lowestGrade = allGrades.Min();
+        
+        // LESSON 8: Top performer using OrderByDescending and FirstOrDefault
+        var topPerformer = studentNames
+            .Where(name => studentGrades[name].Count > 0)
+            .OrderByDescending(name => studentGrades[name].Average())
+            .FirstOrDefault();
+        
+        double topAverage = 0;
+        if (topPerformer != null)
+        {
+            topAverage = studentGrades[topPerformer].Average();
+        }
+        
+        // All students with averages
+        var studentsWithGrades = studentNames
+            .Where(name => studentGrades[name].Count > 0)
+            .OrderByDescending(name => studentGrades[name].Average())
+            .Select(name => (name, studentGrades[name].Average(), studentGrades[name].Count))
+            .ToList();
+        
+        ConsoleHelper.ShowClassReport(studentNames.Count, totalGrades, classAverage, 
+            highestGrade, lowestGrade, topPerformer ?? "", topAverage, studentsWithGrades);
+    }
+    
+    // =============================================================================
+    // Helper Methods
+    // =============================================================================
+    
+    // LESSON 6: Helper method for validation
+    static bool StudentExists(string name)
+    {
+        // Simple loop-based search (before LINQ)
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            if (studentNames[i].Equals(name, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Add some initial data to make the app interesting
+    static void AddInitialData()
+    {
+        // LESSON 3: Add initial students
+        studentNames.Add("Alice Johnson");
+        studentNames.Add("Bob Smith"); 
+        studentNames.Add("Carol Davis");
+        
+        // LESSON 5: Add initial grades
+        studentGrades["Alice Johnson"] = new List<int> { 92, 88, 95, 90 };
+        studentGrades["Bob Smith"] = new List<int> { 78, 85, 82 };
+        studentGrades["Carol Davis"] = new List<int> { 95, 98, 97, 100, 94 };
+    }
 }
 
+// =============================================================================
+// LESSON PROGRESSION SUMMARY:
+// =============================================================================
+// LESSON 1: Introduced arrays vs lists concept with fixedSubjects array
+// LESSON 2: Introduced List<string> and Dictionary<string, List<int>> generics
+// LESSON 3: Implemented Add, Remove, Show operations for students
+// LESSON 4: Added Sort and basic Find functionality (no LINQ)
+// LESSON 5: Implemented Dictionary operations for storing/retrieving grades
+// LESSON 6: Added gentle validation for names, grades, and input safety
+// LESSON 7: Introduced simple LINQ (Where, OrderBy) for filtering and sorting
+// LESSON 8: Added reporting with Average, Min, Max and basic aggregations
+// =============================================================================
