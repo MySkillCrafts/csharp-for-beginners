@@ -58,8 +58,8 @@ class Program
         {
             ConsoleHelper.ShowMainMenu();
             string choice = Console.ReadLine() ?? "";
-            Console.WriteLine();
-            
+        Console.WriteLine();
+
             switch (choice)
             {
                 case "1":
@@ -257,28 +257,20 @@ class Program
         // Create a demo list
         List<string> demoList = new List<string> { "Apple", "Banana", "Cherry", "Date" };
         
-        // Show list in table format
-        var listData = demoList.Select((item, index) => new
+        ConsoleHelper.ShowInfo("Original list contents:");
+        for (int i = 0; i < demoList.Count; i++)
         {
-            Index = index,
-            Item = item,
-            Length = item.Length,
-            FirstChar = item[0]
-        });
-        
-        ConsoleHelper.ShowTable(listData, "Original List Contents");
+            Console.WriteLine($"  [{i}] {demoList[i]} (Length: {demoList[i].Length})");
+        }
+        Console.WriteLine();
         
         // Show operations results
-        var operations = new[]
-        {
-            new { Operation = "First item", Result = demoList[0] },
-            new { Operation = "Last item", Result = demoList[demoList.Count - 1] },
-            new { Operation = "Contains 'Apple'", Result = demoList.Contains("Apple").ToString() },
-            new { Operation = "'Banana' index", Result = demoList.IndexOf("Banana").ToString() },
-            new { Operation = "Total count", Result = demoList.Count.ToString() }
-        };
-        
-        ConsoleHelper.ShowTable(operations, "List Operations Results");
+        ConsoleHelper.ShowInfo("List operations:");
+        Console.WriteLine($"  First item: {demoList[0]}");
+        Console.WriteLine($"  Last item: {demoList[demoList.Count - 1]}");
+        Console.WriteLine($"  Contains 'Apple': {demoList.Contains("Apple")}");
+        Console.WriteLine($"  'Banana' index: {demoList.IndexOf("Banana")}");
+        Console.WriteLine($"  Total count: {demoList.Count}");
     }
     
     // =============================================================================
@@ -292,7 +284,7 @@ class Program
             ConsoleHelper.ShowError("No students to remove!");
             return;
         }
-        
+
         // Show current students for reference
         ConsoleHelper.ShowInfo("Current students:");
         for (int i = 0; i < studentNames.Count; i++)
@@ -353,7 +345,7 @@ class Program
             ConsoleHelper.ShowError("No students yet. Add students first!");
             return;
         }
-        
+
         // Show available students
         ConsoleHelper.ShowInfo("Students available for grading:");
         for (int i = 0; i < studentNames.Count; i++)
@@ -439,7 +431,7 @@ class Program
             ConsoleHelper.ShowError("No students yet!");
             return;
         }
-        
+
         string name = ConsoleHelper.GetInput("Enter student name: ");
         
         // LESSON 5: Safe dictionary access using TryGetValue
@@ -477,7 +469,7 @@ class Program
             ConsoleHelper.ShowError("No students to sort!");
             return;
         }
-        
+
         ConsoleHelper.ShowInfo("Before sorting:");
         ShowAllStudents();
         
@@ -509,7 +501,7 @@ class Program
             ConsoleHelper.ShowError("No students to sort!");
             return;
         }
-        
+
         // LESSON 6: Sort then reverse
         studentNames.Sort(StringComparer.OrdinalIgnoreCase);
         studentNames.Reverse();
@@ -542,16 +534,16 @@ class Program
             ConsoleHelper.ShowError("No students to search!");
             return;
         }
-        
+
         string searchTerm = ConsoleHelper.GetInput("Enter part of student name: ");
-        
+
         // LESSON 7: Input validation
         if (string.IsNullOrWhiteSpace(searchTerm))
         {
             ConsoleHelper.ShowError("Search term cannot be empty!");
             return;
         }
-        
+
         if (searchTerm.Length < 2)
         {
             ConsoleHelper.ShowWarning("Search term should be at least 2 characters for better results.");
@@ -602,7 +594,7 @@ class Program
         }
         
         // LESSON 7: Validation concepts summary
-        Console.WriteLine();
+            Console.WriteLine();
         ConsoleHelper.ShowInfo("Validation patterns demonstrated:");
         Console.WriteLine("- Null/empty checks with string.IsNullOrWhiteSpace()");
         Console.WriteLine("- Length validation for meaningful input");
@@ -621,13 +613,19 @@ class Program
             ConsoleHelper.ShowError("No students yet!");
             return;
         }
-        
+
         ConsoleHelper.ShowInfo("=== LINQ Introduction: Filtering Data ===");
         
-        // LESSON 8: First LINQ query - Where clause
-        var studentsWithGrades = studentNames
-            .Where(name => studentGrades[name].Count > 0)
-            .ToList();
+        // LESSON 8: First show how to do it WITHOUT LINQ (manual approach)
+        List<string> studentsWithGrades = new List<string>();
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string name = studentNames[i];
+            if (studentGrades[name].Count > 0)
+            {
+                studentsWithGrades.Add(name);
+            }
+        }
         
         ConsoleHelper.ShowInfo($"Students with grades: {studentsWithGrades.Count} out of {studentNames.Count}");
         
@@ -636,32 +634,62 @@ class Program
             ConsoleHelper.ShowWarning("No students have grades yet!");
             return;
         }
+
+        // LESSON 8: Find top students manually (before showing LINQ)
+        List<string> topStudentNames = new List<string>();
+        List<double> topStudentAverages = new List<double>();
         
-        // LESSON 8: LINQ with multiple conditions
-        var topStudents = studentNames
-            .Where(name => studentGrades[name].Count > 0)           // Has grades
-            .Where(name => studentGrades[name].Average() >= 90)     // High average
-            .OrderByDescending(name => studentGrades[name].Average()) // Sort by average
-            .Select(name => (name, studentGrades[name].Average()))   // Transform to tuple
-            .ToList();
+        for (int i = 0; i < studentsWithGrades.Count; i++)
+        {
+            string name = studentsWithGrades[i];
+            if (studentGrades[name].Count > 0)
+            {
+                double average = CalculateAverage(studentGrades[name]);
+                if (average >= 90)
+                {
+                    topStudentNames.Add(name);
+                    topStudentAverages.Add(average);
+                }
+            }
+        }
         
-        ConsoleHelper.ShowTopStudents(topStudents);
+        // Simple bubble sort for demonstration (before LINQ OrderBy)
+        for (int i = 0; i < topStudentNames.Count - 1; i++)
+        {
+            for (int j = 0; j < topStudentNames.Count - 1 - i; j++)
+            {
+                if (topStudentAverages[j] < topStudentAverages[j + 1])
+                {
+                    // Swap names
+                    string tempName = topStudentNames[j];
+                    topStudentNames[j] = topStudentNames[j + 1];
+                    topStudentNames[j + 1] = tempName;
+                    
+                    // Swap averages
+                    double tempAverage = topStudentAverages[j];
+                    topStudentAverages[j] = topStudentAverages[j + 1];
+                    topStudentAverages[j + 1] = tempAverage;
+                }
+            }
+        }
         
-        // LESSON 8: Explain LINQ concepts
+        ShowTopStudentsSimple(topStudentNames, topStudentAverages);
+        
+        // LESSON 8: NOW show the LINQ equivalent
         Console.WriteLine();
-        ConsoleHelper.ShowInfo("LINQ concepts introduced:");
-        Console.WriteLine("- Where() - filters data based on conditions");
-        Console.WriteLine("- OrderByDescending() - sorts in descending order");
-        Console.WriteLine("- Select() - transforms data to new format");
-        Console.WriteLine("- ToList() - converts result to List<T>");
-        Console.WriteLine("- Method chaining - operations flow left to right");
+        ConsoleHelper.ShowInfo("The same with LINQ (much simpler!):");
+        Console.WriteLine("var topStudents = studentNames");
+        Console.WriteLine("    .Where(name => studentGrades[name].Count > 0)");
+        Console.WriteLine("    .Where(name => studentGrades[name].Average() >= 90)");
+        Console.WriteLine("    .OrderByDescending(name => studentGrades[name].Average())");
+        Console.WriteLine("    .Select(name => (name, studentGrades[name].Average()))");
+        Console.WriteLine("    .ToList();");
         
-        // LESSON 8: Show the equivalent without LINQ for comparison
-        ConsoleHelper.ShowInfo("Without LINQ, this would require:");
-        Console.WriteLine("- Multiple loops");
-        Console.WriteLine("- Temporary variables");
-        Console.WriteLine("- Manual sorting logic");
-        Console.WriteLine("- Much more code!");
+        ConsoleHelper.ShowInfo("LINQ benefits:");
+        Console.WriteLine("- Much less code");
+        Console.WriteLine("- More readable");
+        Console.WriteLine("- Less chance for bugs");
+        Console.WriteLine("- Chainable operations");
     }
     
     static void FindStudentsAboveAverage()
@@ -671,37 +699,79 @@ class Program
             ConsoleHelper.ShowError("No students yet!");
             return;
         }
-        
-        // LESSON 8: Complex LINQ - SelectMany to flatten collections
-        var allGrades = studentGrades.Values
-            .SelectMany(grades => grades)
-            .ToList();
+
+        // LESSON 8: Manual approach - collect all grades
+        List<int> allGrades = new List<int>();
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string name = studentNames[i];
+            List<int> studentGradeList = studentGrades[name];
+            for (int j = 0; j < studentGradeList.Count; j++)
+            {
+                allGrades.Add(studentGradeList[j]);
+            }
+        }
         
         if (allGrades.Count == 0)
         {
             ConsoleHelper.ShowError("No grades entered yet!");
             return;
         }
+
+        double classAverage = CalculateAverage(allGrades);
         
-        double classAverage = allGrades.Average();
+        // LESSON 8: Find students above average manually
+        List<string> aboveAverageNames = new List<string>();
+        List<double> aboveAverageValues = new List<double>();
         
-        // LESSON 8: Combining multiple LINQ operations
-        var aboveAverageStudents = studentNames
-            .Where(name => studentGrades[name].Count > 0)
-            .Where(name => studentGrades[name].Average() > classAverage)
-            .OrderByDescending(name => studentGrades[name].Average())
-            .Select(name => (name, studentGrades[name].Average()))
-            .ToList();
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string name = studentNames[i];
+            if (studentGrades[name].Count > 0)
+            {
+                double studentAverage = CalculateAverage(studentGrades[name]);
+                if (studentAverage > classAverage)
+                {
+                    aboveAverageNames.Add(name);
+                    aboveAverageValues.Add(studentAverage);
+                }
+            }
+        }
         
-        ConsoleHelper.ShowAboveAverageStudents(classAverage, aboveAverageStudents);
+        // Simple sort by average (descending)
+        for (int i = 0; i < aboveAverageNames.Count - 1; i++)
+        {
+            for (int j = 0; j < aboveAverageNames.Count - 1 - i; j++)
+            {
+                if (aboveAverageValues[j] < aboveAverageValues[j + 1])
+                {
+                    // Swap names
+                    string tempName = aboveAverageNames[j];
+                    aboveAverageNames[j] = aboveAverageNames[j + 1];
+                    aboveAverageNames[j + 1] = tempName;
+                    
+                    // Swap averages
+                    double tempAverage = aboveAverageValues[j];
+                    aboveAverageValues[j] = aboveAverageValues[j + 1];
+                    aboveAverageValues[j + 1] = tempAverage;
+                }
+            }
+        }
         
-        // LESSON 8: Advanced LINQ concepts
+        ShowAboveAverageStudentsSimple(classAverage, aboveAverageNames, aboveAverageValues);
+        
+        // LESSON 8: Show LINQ equivalent
         Console.WriteLine();
-        ConsoleHelper.ShowInfo("Advanced LINQ concepts:");
-        Console.WriteLine("- SelectMany() - flattens nested collections");
-        Console.WriteLine("- Multiple Where() clauses - each filters further");
-        Console.WriteLine("- Combining aggregations (Average) with filtering");
-        Console.WriteLine("- Anonymous types and tuples for data shaping");
+        ConsoleHelper.ShowInfo("The same with LINQ:");
+        Console.WriteLine("var allGrades = studentGrades.Values");
+        Console.WriteLine("    .SelectMany(grades => grades).ToList();");
+        Console.WriteLine("var aboveAverage = studentNames");
+        Console.WriteLine("    .Where(name => studentGrades[name].Count > 0)");
+        Console.WriteLine("    .Where(name => studentGrades[name].Average() > classAverage)");
+        Console.WriteLine("    .OrderByDescending(name => studentGrades[name].Average())");
+        Console.WriteLine("    .Select(name => (name, studentGrades[name].Average()))");
+        
+        ConsoleHelper.ShowInfo("LINQ made this much simpler!");
     }
     
     // =============================================================================
@@ -715,7 +785,7 @@ class Program
             ConsoleHelper.ShowError("No students yet!");
             return;
         }
-        
+
         string name = ConsoleHelper.GetInput("Enter student name: ");
         
         if (studentGrades.TryGetValue(name, out List<int>? grades))
@@ -727,9 +797,9 @@ class Program
             else
             {
                 // LESSON 9: Basic aggregation methods
-                double average = grades.Average();
-                int minGrade = grades.Min();
-                int maxGrade = grades.Max();
+                double average = CalculateAverage(grades);
+                int minGrade = FindMinGrade(grades);
+                int maxGrade = FindMaxGrade(grades);
                 int totalGrades = grades.Count;
                 
                 ConsoleHelper.ShowStudentAverage(name, average, grades);
@@ -743,12 +813,19 @@ class Program
                 Console.WriteLine($"- Grade range: {maxGrade - minGrade} points");
                 Console.WriteLine($"- Total assessments: {totalGrades}");
                 
-                // LESSON 9: LINQ aggregation with conditions
-                var highGrades = grades.Where(g => g >= 90).ToList();
-                var lowGrades = grades.Where(g => g < 70).ToList();
+                // LESSON 9: Manual counting with conditions (before LINQ)
+                int highGradeCount = 0;
+                int lowGradeCount = 0;
+                for (int i = 0; i < grades.Count; i++)
+                {
+                    if (grades[i] >= 90)
+                        highGradeCount++;
+                    if (grades[i] < 70)
+                        lowGradeCount++;
+                }
                 
-                Console.WriteLine($"- Grades 90+: {highGrades.Count} ({(double)highGrades.Count / totalGrades * 100:F1}%)");
-                Console.WriteLine($"- Grades below 70: {lowGrades.Count} ({(double)lowGrades.Count / totalGrades * 100:F1}%)");
+                Console.WriteLine($"- Grades 90+: {highGradeCount} ({(double)highGradeCount / totalGrades * 100:F1}%)");
+                Console.WriteLine($"- Grades below 70: {lowGradeCount} ({(double)lowGradeCount / totalGrades * 100:F1}%)");
             }
         }
         else
@@ -764,58 +841,128 @@ class Program
             ConsoleHelper.ShowError("No students yet!");
             return;
         }
-        
-        // LESSON 9: Complex data analysis with LINQ
-        var allGrades = studentGrades.Values.SelectMany(grades => grades).ToList();
+
+        // LESSON 9: Manual data collection (before LINQ)
+        List<int> allGrades = new List<int>();
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string name = studentNames[i];
+            List<int> studentGradeList = studentGrades[name];
+            for (int j = 0; j < studentGradeList.Count; j++)
+            {
+                allGrades.Add(studentGradeList[j]);
+            }
+        }
         
         if (allGrades.Count == 0)
         {
             ConsoleHelper.ShowError("No grades entered yet!");
             return;
         }
-        
-        // LESSON 9: Comprehensive statistics
-        double classAverage = allGrades.Average();
+
+        // LESSON 9: Basic statistics
+        double classAverage = CalculateAverage(allGrades);
         int totalGrades = allGrades.Count;
-        int highestGrade = allGrades.Max();
-        int lowestGrade = allGrades.Min();
+        int highestGrade = FindMaxGrade(allGrades);
+        int lowestGrade = FindMinGrade(allGrades);
         
-        // LESSON 9: Advanced LINQ queries
-        var topPerformer = studentNames
-            .Where(name => studentGrades[name].Count > 0)
-            .OrderByDescending(name => studentGrades[name].Average())
-            .FirstOrDefault();
-        
+        // LESSON 9: Find top performer manually
+        string topPerformer = "";
         double topAverage = 0;
-        if (topPerformer != null)
+        for (int i = 0; i < studentNames.Count; i++)
         {
-            topAverage = studentGrades[topPerformer].Average();
+            string name = studentNames[i];
+            if (studentGrades[name].Count > 0)
+            {
+                double average = CalculateAverage(studentGrades[name]);
+                if (average > topAverage)
+                {
+                    topAverage = average;
+                    topPerformer = name;
+                }
+            }
         }
         
-        // LESSON 9: Grouping and analysis
-        var studentsWithGrades = studentNames
-            .Where(name => studentGrades[name].Count > 0)
-            .OrderByDescending(name => studentGrades[name].Average())
-            .Select(name => (name, studentGrades[name].Average(), studentGrades[name].Count))
-            .ToList();
+        // LESSON 9: Create students with grades lists manually (using separate lists)
+        List<string> studentNamesWithGrades = new List<string>();
+        List<double> studentAverages = new List<double>();
+        List<int> studentGradeCounts = new List<int>();
         
-        // LESSON 9: Grade distribution analysis
-        var gradeDistribution = allGrades
-            .GroupBy(grade => grade / 10 * 10) // Group by decade (90-99, 80-89, etc.)
-            .OrderByDescending(group => group.Key)
-            .Select(group => (Range: $"{group.Key}-{group.Key + 9}", Count: group.Count()))
-            .ToList();
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string name = studentNames[i];
+            if (studentGrades[name].Count > 0)
+            {
+                double average = CalculateAverage(studentGrades[name]);
+                int gradeCount = studentGrades[name].Count;
+                
+                studentNamesWithGrades.Add(name);
+                studentAverages.Add(average);
+                studentGradeCounts.Add(gradeCount);
+            }
+        }
         
-        ConsoleHelper.ShowClassReport(studentNames.Count, totalGrades, classAverage, 
-            highestGrade, lowestGrade, topPerformer ?? "", topAverage, studentsWithGrades);
+        // Simple sort by average (descending) - sort all three lists together
+        for (int i = 0; i < studentNamesWithGrades.Count - 1; i++)
+        {
+            for (int j = 0; j < studentNamesWithGrades.Count - 1 - i; j++)
+            {
+                if (studentAverages[j] < studentAverages[j + 1])
+                {
+                    // Swap names
+                    string tempName = studentNamesWithGrades[j];
+                    studentNamesWithGrades[j] = studentNamesWithGrades[j + 1];
+                    studentNamesWithGrades[j + 1] = tempName;
+                    
+                    // Swap averages
+                    double tempAverage = studentAverages[j];
+                    studentAverages[j] = studentAverages[j + 1];
+                    studentAverages[j + 1] = tempAverage;
+                    
+                    // Swap grade counts
+                    int tempCount = studentGradeCounts[j];
+                    studentGradeCounts[j] = studentGradeCounts[j + 1];
+                    studentGradeCounts[j + 1] = tempCount;
+                }
+            }
+        }
+        
+        // LESSON 9: Grade distribution analysis manually
+        List<string> gradeRanges = new List<string>();
+        List<int> gradeCounts = new List<int>();
+        int[] rangeCounts = new int[11]; // 0-9, 10-19, ..., 90-99, 100
+        
+        for (int i = 0; i < allGrades.Count; i++)
+        {
+            int grade = allGrades[i];
+            int rangeIndex = grade / 10;
+            if (rangeIndex > 10) rangeIndex = 10; // Handle grade 100
+            rangeCounts[rangeIndex]++;
+        }
+        
+        for (int i = 10; i >= 0; i--) // Start from highest range
+        {
+            if (rangeCounts[i] > 0)
+            {
+                string range = i == 10 ? "100" : $"{i * 10}-{i * 10 + 9}";
+                gradeRanges.Add(range);
+                gradeCounts.Add(rangeCounts[i]);
+            }
+        }
+        
+        ShowClassReportSimple(studentNames.Count, totalGrades, classAverage, 
+            highestGrade, lowestGrade, topPerformer, topAverage, 
+            studentNamesWithGrades, studentAverages, studentGradeCounts);
         
         // LESSON 9: Show grade distribution
         Console.WriteLine();
         ConsoleHelper.ShowInfo("Grade Distribution:");
-        foreach (var range in gradeDistribution)
+        for (int i = 0; i < gradeRanges.Count; i++)
         {
-            double percentage = (double)range.Count / totalGrades * 100;
-            Console.WriteLine($"  {range.Range}%: {range.Count} grades ({percentage:F1}%)");
+            string range = gradeRanges[i];
+            int count = gradeCounts[i];
+            double percentage = (double)count / totalGrades * 100;
+            Console.WriteLine($"  {range}%: {count} grades ({percentage:F1}%)");
         }
         
         // LESSON 9: LINQ concepts summary
@@ -846,6 +993,119 @@ class Program
         return false;
     }
     
+    // =============================================================================
+    // Helper Methods (Simple implementations without LINQ)
+    // =============================================================================
+    
+    // Calculate average of a list of integers
+    static double CalculateAverage(List<int> numbers)
+    {
+        if (numbers.Count == 0) return 0;
+        
+        int sum = 0;
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            sum += numbers[i];
+        }
+        return (double)sum / numbers.Count;
+    }
+    
+    // Find minimum grade in a list
+    static int FindMinGrade(List<int> grades)
+    {
+        if (grades.Count == 0) return 0;
+        
+        int min = grades[0];
+        for (int i = 1; i < grades.Count; i++)
+        {
+            if (grades[i] < min)
+                min = grades[i];
+        }
+        return min;
+    }
+    
+    // Find maximum grade in a list
+    static int FindMaxGrade(List<int> grades)
+    {
+        if (grades.Count == 0) return 0;
+        
+        int max = grades[0];
+        for (int i = 1; i < grades.Count; i++)
+        {
+            if (grades[i] > max)
+                max = grades[i];
+        }
+        return max;
+    }
+    
+    // Simple method to show top students without tuples
+    static void ShowTopStudentsSimple(List<string> names, List<double> averages)
+    {
+        if (names.Count == 0)
+        {
+            ConsoleHelper.ShowWarning("No students with 90+ average yet.");
+            return;
+        }
+
+        ConsoleHelper.ShowInfo("🏆 Top Students (average 90+):");
+        for (int i = 0; i < names.Count; i++)
+        {
+            Console.WriteLine($"  {i + 1}. {names[i]} - {averages[i]:F1}%");
+        }
+    }
+    
+    // Simple method to show above average students without tuples
+    static void ShowAboveAverageStudentsSimple(double classAverage, List<string> names, List<double> averages)
+    {
+        if (names.Count == 0)
+        {
+            ConsoleHelper.ShowWarning("No students above class average.");
+            return;
+        }
+
+        ConsoleHelper.ShowInfo($"📈 Students Above Class Average ({classAverage:F1}%):");
+        for (int i = 0; i < names.Count; i++)
+        {
+            double difference = averages[i] - classAverage;
+            Console.WriteLine($"  • {names[i]} - {averages[i]:F1}% (+{difference:F1}%)");
+        }
+    }
+    
+    // Simple method to show class report without tuples
+    static void ShowClassReportSimple(int totalStudents, int totalGrades, double classAverage,
+        int highestGrade, int lowestGrade, string topPerformer, double topAverage,
+        List<string> studentNames, List<double> averages, List<int> gradeCounts)
+    {
+        ConsoleHelper.ShowInfo("📈 Class Report");
+        Console.WriteLine("".PadLeft(50, '═'));
+
+        // Basic statistics
+        Console.WriteLine($"📊 Class Statistics:");
+        Console.WriteLine($"   Total students: {totalStudents}");
+        Console.WriteLine($"   Total grades: {totalGrades}");
+        Console.WriteLine($"   Class average: {classAverage:F2}%");
+        Console.WriteLine($"   Highest grade: {highestGrade}%");
+        Console.WriteLine($"   Lowest grade: {lowestGrade}%");
+        Console.WriteLine();
+
+        // Top performer
+        if (!string.IsNullOrEmpty(topPerformer))
+        {
+            ConsoleHelper.ShowInfo($"🏆 Top Performer: {topPerformer} ({topAverage:F1}%)");
+        }
+
+        // Individual averages
+        Console.WriteLine();
+        ConsoleHelper.ShowInfo("📋 Individual Performance:");
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            string performance = averages[i] >= 90 ? "🏆 Excellent" :
+                                averages[i] >= 70 ? "👍 Good" :
+                                "📈 Improving";
+            Console.WriteLine($"   {i + 1}. {studentNames[i]}: {averages[i]:F1}% ({gradeCounts[i]} grades) {performance}");
+        }
+    }
+
     // Add some initial data to make the app interesting
     static void AddInitialData()
     {
