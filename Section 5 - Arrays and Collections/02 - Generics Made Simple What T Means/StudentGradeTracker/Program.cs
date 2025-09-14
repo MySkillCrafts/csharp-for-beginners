@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-    // Arrays - Fixed size collections
+        // Arrays - Fixed size collections
         string[] subjects = { "Math", "Science", "English", "History" };
         
         // Lists - Dynamic collections
