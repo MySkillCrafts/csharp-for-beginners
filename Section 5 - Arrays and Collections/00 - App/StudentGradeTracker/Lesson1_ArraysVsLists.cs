@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // ═══════════════════════════════════════════════════════════════════════════════════
 // LESSON 1: Arrays vs Lists - When Each Makes Sense
@@ -9,31 +10,42 @@ class Program
 {
     static void Main()
     {
+        ConsoleHelper.ShowAppTitle("LESSON 1: Arrays vs Lists");
+        
         // ARRAYS - Fixed Size Collections
         string[] subjects = { "Math", "Science", "English", "History" };
         
-        // Array access by index
-        string firstSubject = subjects[0];
-        string lastSubject = subjects[subjects.Length - 1];
+        ConsoleHelper.ShowInfo("📚 ARRAYS - Fixed Size Collections");
+        ConsoleHelper.ShowArrayDemo(subjects, "School Subjects (Array)");
+        Console.WriteLine();
         
         // LISTS - Dynamic Collections  
         List<string> studentNames = new List<string>();
+        
+        ConsoleHelper.ShowInfo("📝 LISTS - Dynamic Collections");
+        ConsoleHelper.ShowInfo($"Initial count: {studentNames.Count}");
         
         // Adding students to the list
         studentNames.Add("Alice Johnson");
         studentNames.Add("Bob Smith");
         studentNames.Add("Carol Davis");
         
-        // Displaying the list
-        for (int i = 0; i < studentNames.Count; i++)
-        {
-            string student = studentNames[i];
-        }
+        ConsoleHelper.ShowListDemo(studentNames, "Students List (After adding students)");
+        Console.WriteLine();
         
-        // PRACTICAL EXAMPLE
-        // In our Student Grade Tracker:
-        // - We use ARRAYS for subjects (they don't change)
-        // - We use LISTS for students (they can be added/removed)
+        // COMPARISON
+        ConsoleHelper.ShowInfo("🔄 COMPARISON");
+        var comparisonData = new[]
+        {
+            new { Collection = "Subjects (Array)", Count = subjects.Length, Type = "FIXED", UseCase = "Don't change" },
+            new { Collection = "Students (List)", Count = studentNames.Count, Type = "DYNAMIC", UseCase = "Can grow/shrink" }
+        };
+        
+        ConsoleHelper.ShowTable(comparisonData, "Arrays vs Lists Comparison");
+        
+        ConsoleHelper.ShowSuccess("✅ In our Student Grade Tracker:");
+        Console.WriteLine("- ARRAYS for subjects (they don't change)");
+        Console.WriteLine("- LISTS for students (they can be added/removed)");
     }
 }
 

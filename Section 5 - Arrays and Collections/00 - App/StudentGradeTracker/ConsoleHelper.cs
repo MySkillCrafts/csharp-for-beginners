@@ -503,4 +503,36 @@ public static class ConsoleHelper
     {
         Console.Clear();
     }
+
+    /// <summary>
+    /// Показывает демонстрацию массива в красивой таблице
+    /// </summary>
+    public static void ShowArrayDemo(string[] array, string title)
+    {
+        var arrayData = array.Select((item, index) => new
+        {
+            Index = index,
+            Item = item,
+            Type = "Fixed Size"
+        }).ToList();
+
+        ShowTable(arrayData, title);
+        ShowInfo($"Array size: {array.Length} (fixed)");
+    }
+
+    /// <summary>
+    /// Показывает демонстрацию списка в красивой таблице
+    /// </summary>
+    public static void ShowListDemo(List<string> list, string title)
+    {
+        var listData = list.Select((item, index) => new
+        {
+            Index = index + 1,
+            Item = item,
+            Type = "Dynamic Size"
+        }).ToList();
+
+        ShowTable(listData, title);
+        ShowInfo($"List count: {list.Count} (dynamic)");
+    }
 }
