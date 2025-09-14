@@ -1,52 +1,69 @@
-using System;
-using System.Collections.Generic;
-
 class Program
 {
     static void Main()
     {
-        // Arrays - Fixed size collections (from lesson 1)
+        // Arrays - Fixed size collections
         string[] subjects = { "Math", "Science", "English", "History" };
-        
-        // Lists - Dynamic collections (from lesson 1)
+
+        // Lists - Dynamic collections
         List<string> studentNames = new List<string>();
+
+        // Array example - fixed size
+        int arraySize = subjects.Length;
+
+        // List example - dynamic size
+        int initialCount = studentNames.Count;
+
+        // Add students to list
         studentNames.Add("Alice Johnson");
         studentNames.Add("Bob Smith");
         studentNames.Add("Carol Davis");
+
+        int afterAdding = studentNames.Count;
+
+        // Add more students
         studentNames.Add("David Wilson");
         studentNames.Add("Eva Brown");
-        
-        // Different types of Lists (from lesson 2)
+
+        int finalCount = studentNames.Count;
+
+        // Comparison
+        int arrayFinalSize = subjects.Length;
+        int listFinalSize = studentNames.Count;
+
+        // Now let's explore different types of Lists
+        // List<int> - holds only integers
         List<int> studentAges = new List<int>();
         studentAges.Add(18);
         studentAges.Add(19);
         studentAges.Add(17);
         studentAges.Add(20);
         studentAges.Add(18);
-        
+
+        // List<double> - holds only decimals
         List<double> studentGrades = new List<double>();
         studentGrades.Add(85.5);
         studentGrades.Add(92.0);
         studentGrades.Add(78.5);
         studentGrades.Add(88.0);
         studentGrades.Add(95.5);
-        
-        // Now let's explore List operations
-        // Initial state
-        int initialCount = studentNames.Count;
-        
-        // Adding more students
-        studentNames.Add("Frank Miller");
-        studentNames.Add("Grace Lee");
-        
-        int afterAdding = studentNames.Count;
-        
+
+        // All use the same methods
+        int stringCount = studentNames.Count;
+        int intCount = studentAges.Count;
+        int doubleCount = studentGrades.Count;
+
+        // Type safety - these would cause errors:
+        // studentNames.Add(123); // ERROR! Can't add int to List<string>
+        // studentAges.Add("Alice"); // ERROR! Can't add string to List<int> }
+
+        // Now let's explore List operations     
         // Removing students
         bool removed = studentNames.Remove("Bob Smith");
         int afterRemoval = studentNames.Count;
-        
+
         bool notFound = studentNames.Remove("John Doe");
-        
+
         // Remove by index
         if (studentNames.Count > 0)
         {
@@ -54,11 +71,11 @@ class Program
             studentNames.RemoveAt(0);
             int afterIndexRemoval = studentNames.Count;
         }
-        
+
         // Checking students
         bool containsAlice = studentNames.Contains("Alice Johnson");
         bool containsBob = studentNames.Contains("Bob Smith");
-        
+
         // Clearing all students
         int countBeforeClear = studentNames.Count;
         studentNames.Clear();
