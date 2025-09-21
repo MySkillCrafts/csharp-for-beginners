@@ -67,24 +67,7 @@ class Program
         
         // Type safety - these would cause errors:
         // studentNames.Add(123); // ERROR! Can't add int to List<string>
-        // studentAges.Add("Alice"); // ERROR! Can't add string to List<int>
-        
-        // Show the lesson in beautiful web interface
-        Console.WriteLine("🎓 Lesson 2: Generics Made Simple - What <T> Means");
-        Console.WriteLine("================================================\n");
-        
-        // Show arrays vs lists comparison
-        WebUIHelper.ShowArrayVsList(subjects, studentNames, arraySize, initialCount, afterAdding, finalCount);
-        Console.ReadKey();
-        
-        // Show generics demo with different types
-        WebUIHelper.ShowGenericsDemo(studentAges.ToArray(), "Generics with Integers");
-        Console.ReadKey();
-        
-        WebUIHelper.ShowGenericsDemo(studentGrades.ToArray(), "Generics with Decimals");
-        Console.ReadKey();
-        
-        Console.WriteLine("✨ Lesson 2 completed!");
-        WebUIHelper.Stop();
+        // studentAges.Add("Alice"); // ERROR! Can't add string to List<int>    
+      
     }
 }
