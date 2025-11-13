@@ -24,7 +24,4 @@ Section5.Lesson4.DisplayInWebBrowser(
     studentNames,
     studentGrades,
     sortedByNameList,
-    reversedList,
-    string.Empty,
-    new List<string>(),
-    false);
+    reversedList);
