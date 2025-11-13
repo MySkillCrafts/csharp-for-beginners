@@ -1,6 +1,5 @@
 ﻿using CSharpForBeginners.LessonsHelper;
 
-
 List<string> studentNames = new List<string>();
 studentNames.Add("Alice Johnson");
 studentNames.Add("Bob Smith");
@@ -21,6 +20,5 @@ testGrades.Add(92.0);
 testGrades.Add(85.7);
 testGrades.Add(91.3);
 testGrades.Add(89.8);
-
 
 Section5.Lesson2.DisplayInWebBrowser(studentNames, studentAges, testGrades);
