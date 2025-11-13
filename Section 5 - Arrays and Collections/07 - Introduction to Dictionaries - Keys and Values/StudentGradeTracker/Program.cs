@@ -10,6 +10,4 @@ int aliceGrade = studentGrades["Alice Johnson"];
 
 Section5.Lesson5.DisplayInWebBrowser(
     studentGrades,
-    aliceGrade,
-    false,
-    false);
+    aliceGrade);
