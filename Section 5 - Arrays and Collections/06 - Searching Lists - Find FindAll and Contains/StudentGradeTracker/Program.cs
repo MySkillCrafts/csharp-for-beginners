@@ -32,5 +32,4 @@ Section5.Lesson4.DisplayInWebBrowser(
     sortedByNameList,
     reversedList,
     foundStudent,
-    longNames,
-    hasAlice);
+    longNames);
