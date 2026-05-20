@@ -1,14 +1,6 @@
 ﻿
 using System.Diagnostics;
 
-List<string> activityDays = new List<string>
-{
-    "Monday", "Monday", "Monday",
-    "Tuesday", "Tuesday", "Tuesday",
-    "Wednesday", "Wednesday", "Wednesday",
-    "Thursday", "Thursday", "Thursday"
-};
-
 List<string> activities = new List<string> {
     "Morning jog",
     "Healthy breakfast",
@@ -40,12 +32,9 @@ while (running)
     {
         Console.WriteLine("==== Your activities ====");
 
-        for (int i = 0; i < activities.Count; i++)
+        foreach (string activity in activities)
         {
-            string activity = activities[i];
-            string day = activityDays[i];
-
-            Console.WriteLine($"{i + 1}. {activity} ({day})");
+            Console.WriteLine($"- {activity}");
         }
 
         Console.WriteLine();

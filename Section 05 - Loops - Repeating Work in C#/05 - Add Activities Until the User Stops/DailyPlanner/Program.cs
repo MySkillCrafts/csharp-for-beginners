@@ -58,13 +58,26 @@ while (running)
     {
         Console.WriteLine();
         Console.WriteLine("==== Add activity ====");
-        Console.Write("Activity name: ");
+        Console.WriteLine("(Type 'done' when finished)");          
 
-        string newActivity = Console.ReadLine();
-        activities.Add(newActivity);
+        while (true)
+        {
+            Console.Write("Activity name: ");
+            string newActivity = Console.ReadLine();
+            if (newActivity.ToLower() == "done")
+            {
+                Console.WriteLine("Finished adding activities!");
+                break;
+            }
 
-        Console.WriteLine();
-        Console.WriteLine($"Added: {newActivity}");
+            Console.Write("Day (Monday–Friday): ");
+            string day = Console.ReadLine();
 
+            activities.Add(newActivity);
+            activityDays.Add(day);
+
+            Console.WriteLine();
+            Console.WriteLine($"Added: {newActivity} on {day}");
+        }
     }
 }
