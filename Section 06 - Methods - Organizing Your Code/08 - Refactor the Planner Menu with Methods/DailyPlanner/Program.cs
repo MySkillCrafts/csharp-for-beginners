@@ -1,0 +1,297 @@
+﻿
+Dictionary<string, string> activityStatus = new Dictionary<string, string>
+{
+    { "Morning jog", "Done" },
+    { "Healthy breakfast", "Done" },
+    { "Study new topic", "Done" }
+};
+
+List<string> activityDays = new List<string>
+{
+    "Monday", "Monday", "Monday",
+    "Tuesday", "Tuesday", "Tuesday",
+    "Wednesday", "Wednesday", "Wednesday",
+    "Thursday", "Thursday", "Thursday"
+};
+
+List<string> activities = new List<string> {
+    "Morning jog",
+    "Healthy breakfast",
+    "Plan the week",
+    "Study new topic",
+    "Practice coding",
+    "Watch tutorial",
+    "Call a friend",
+    "Work on hobby",
+    "Cook dinner",
+    "Yoga session",
+    "Drink water",
+    "Read a book"
+};
+
+bool running = true;
+while (running)
+{
+    ShowMenu();
+    string choice = Console.ReadLine();
+
+    if (choice == "1")
+    {
+        Console.WriteLine("==== Your activities ====");
+
+        for (int i = 0; i < activities.Count; i++)
+        {
+            string activity = activities[i];
+            string day = activityDays[i];
+            string status = activityStatus.ContainsKey(activity) ? activityStatus[activity] : "Pending";
+            string marker = status == "Done" ? "[✓]" : "[ ]";
+
+            Console.WriteLine($"{i + 1}. {marker} {activity} ({day})");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine($"Total activities: {activities.Count}");
+        Console.WriteLine();
+
+
+    }
+    else if (choice == "2")
+    {
+        Console.WriteLine();
+        Console.WriteLine("==== Add activity ====");
+        Console.WriteLine("(Type 'done' when finished)");
+
+        while (true)
+        {
+            Console.Write("Activity name: ");
+            string newActivity = Console.ReadLine();
+            if (newActivity.ToLower() == "done")
+            {
+                Console.WriteLine("Finished adding activities!");
+                break;
+            }
+
+            Console.Write("Day (Monday–Friday): ");
+            string day = Console.ReadLine();
+
+            activities.Add(newActivity);
+            activityDays.Add(day);
+
+            Console.WriteLine();
+            Console.WriteLine($"Added: {newActivity} on {day}");
+        }
+    }
+    else if (choice == "3")
+    {
+        MarkAsDone(activityStatus, activities);
+    }
+    else if (choice == "4")
+    {
+        Console.WriteLine("==== Search activities ====");
+        Console.WriteLine();
+
+        Console.Write("Enter search term: ");
+        string searchTerm = Console.ReadLine().ToLower();
+
+        Console.WriteLine();
+
+        Console.WriteLine("First match:");
+        bool found = false;
+
+        for (int i = 0; i < activities.Count; i++)
+        {
+            if (activities[i].ToLower().Contains(searchTerm))
+            {
+                string status = activityStatus.ContainsKey(activities[i]) ? activityStatus[activities[i]] : "Pending";
+
+                Console.WriteLine($"- {activities[i]} ({activityDays[i]}) - {status}");
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No activities found.");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("All completed activities:");
+        int completedCount = 0;
+
+        foreach (string activity in activities)
+        {
+            if (!activityStatus.ContainsKey(activity) || activityStatus[activity] != "Done")
+            {
+                continue;
+            }
+
+            Console.WriteLine($"[✓] {activity}");
+            completedCount++;
+        }
+
+        if (completedCount == 0)
+        {
+            Console.WriteLine("No completed activities yet.");
+        }
+        Console.WriteLine();
+    }
+    else if (choice == "5")
+    {
+        Console.WriteLine();
+        Console.WriteLine("==== Weekly plan ====");
+
+        List<string> daysOfWeek = new List<string>
+        {
+           "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+        };
+
+        foreach (string day in daysOfWeek)
+        {
+            Console.WriteLine($"--- {day.ToUpper()} ---");
+            int dayActivityCount = 0;
+
+            for (int i = 0; i < activities.Count; i++)
+            {
+                if (activityDays[i] == day)
+                {
+                    string activity = activities[i];
+                    string status = activityStatus.ContainsKey(activity) ? activityStatus[activity] : "Pending";
+
+                    string marker = status == "Done" ? "[✓]" : "[ ]";
+
+                    Console.WriteLine($"  {marker} {activity}");
+                    dayActivityCount++;
+                }
+            }
+
+            if (dayActivityCount == 0)
+            {
+                Console.WriteLine("  (no activities)");
+            }
+        }
+
+    }
+    else if (choice == "6")
+    {
+        Console.WriteLine("==== Statistics ====");
+
+
+        int totalActivities = activities.Count;
+        int completedCount = 0;
+
+        foreach (string activity in activities)
+        {
+            if (activityStatus.ContainsKey(activity) && activityStatus[activity] == "Done")
+            {
+                completedCount++;
+            }
+        }
+
+        int pendingCount = totalActivities - completedCount;
+        Console.WriteLine($"Total activities: {totalActivities}");
+        Console.WriteLine($"Completed: {completedCount}");
+        Console.WriteLine($"Pending: {pendingCount}");
+
+        double completionPercentage = totalActivities > 0
+            ? (double)completedCount / totalActivities * 100
+            : 0;
+
+        Console.WriteLine($"Completion: {completionPercentage:F0}%");
+
+        Console.Write("Progress: [");
+        int barLength = 20;
+        int filledLength = (int)(completionPercentage / 100 * barLength);
+
+        for (int i = 0; i < barLength; i++)
+        {
+            if (i < filledLength)
+            {
+                Console.Write("█");
+            }
+            else
+            {
+                Console.Write("░");
+            }
+        }
+        Console.WriteLine("]");
+
+        Console.WriteLine();
+        Console.WriteLine("Activities per day:");
+
+        List<string> daysOfWeek = new List<string> {
+         "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+        };
+
+        foreach (string day in daysOfWeek)
+        {
+
+            int dayCount = 0;
+
+            for (int i = 0; i < activityDays.Count; i++)
+            {
+                if (activityDays[i] == day)
+                {
+                    dayCount++;
+                }
+            }
+
+            Console.WriteLine($"  {day}: {dayCount} activities");
+
+        }
+
+    }
+}
+
+static void ShowMenu()
+{
+    Console.WriteLine("==== DAILY PLANNER ====");
+    Console.WriteLine("1. View activities");
+    Console.WriteLine("2. Add new activities");
+    Console.WriteLine("3. Mark activity as done");
+    Console.WriteLine("4. Search activities");
+    Console.WriteLine("5. View weekly plan");
+    Console.WriteLine("6. Show statistics");
+    Console.WriteLine("0. Exit");
+    Console.WriteLine("-----------------------");
+    Console.WriteLine();
+    Console.Write("Your choice: ");
+}
+
+static void MarkAsDone(Dictionary<string, string> activityStatus, List<string> activities)
+{
+    Console.WriteLine();
+    Console.WriteLine("==== Mark as done ====");
+
+    for (int i = 0; i < activities.Count; i++)
+    {
+        string activity = activities[i];
+        string status = activityStatus.ContainsKey(activity) ? activityStatus[activity] : "Pending";
+        string marker = status == "Done" ? "[✓]" : "[ ]";
+
+        Console.WriteLine($"{i + 1}. {marker} {activity}");
+    }
+
+    Console.Write("Enter activity number: ");
+    string input = Console.ReadLine();
+
+    bool parsed = int.TryParse(input, out int number);
+    int index = number - 1;
+
+    if (parsed && index >= 0 && index < activities.Count)
+    {
+        string activityName = activities[index];
+        activityStatus[activityName] = "Done";
+
+        Console.WriteLine();
+        Console.WriteLine($"Marked as done: {activityName}");
+        Console.WriteLine();
+    }
+    else
+    {
+        Console.WriteLine();
+        Console.WriteLine("Invalid number!");
+        Console.WriteLine();
+    }
+}
