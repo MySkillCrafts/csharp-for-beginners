@@ -60,6 +60,24 @@ while (running) {
             }
             break;
         case MenuChoice.SearchByName:
+            Console.Write("Search name: ");
+            string search = Console.ReadLine();
+            bool found = false;
+
+            foreach (Student student in students)
+            {
+                if (student.Name.ToLower().Contains(search.ToLower()))
+                {
+                    Console.WriteLine(student.GetInfo());
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("No matching student found.");
+            }
+
             break;
         case MenuChoice.ShowCount:
             Console.WriteLine($"Total students: {students.Count}");
