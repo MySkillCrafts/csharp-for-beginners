@@ -1,14 +1,14 @@
-﻿using TypesDemo;
+int score = 5;
+double exactScore = score;
 
-Season currentSeason = Season.Spring;
+Console.WriteLine($"score = {score}");
+Console.WriteLine($"exactScore = {exactScore}");
 
-Console.WriteLine($"Current season: {currentSeason}");
+double precise = 3.7;
+int truncated = (int)precise;
 
-if (currentSeason == Season.Spring)
-{
-    Console.WriteLine("Flowers are blooming!");
-}
-else if (currentSeason == Season.Summer)
-{
-    Console.WriteLine("Time for the beach!");
-}
+Console.WriteLine($"precise = {precise}");
+Console.WriteLine($"truncated = {truncated}");
+
+int rounded = Convert.ToInt32(precise);
+Console.WriteLine($"rounded = {rounded}");
