@@ -1,6 +1,6 @@
 string[] names = { "Alice", "Bob", "Carol" };
 
-for (int i = 0; i <= names.Length; i++) {
+for (int i = 0; i < names.Length; i++) {
     Console.WriteLine(names[i]);
 }
 
