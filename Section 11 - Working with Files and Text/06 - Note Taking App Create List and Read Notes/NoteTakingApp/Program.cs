@@ -57,7 +57,15 @@ while (running)
             Console.Write("Note title: ");
             string readTitle = Console.ReadLine();
             string readPath = Path.Combine(folder, readTitle + ".txt");
-            Console.WriteLine(File.ReadAllText(readPath));
+
+            if (File.Exists(readPath))
+            {
+                Console.WriteLine(File.ReadAllText(readPath));
+            }
+            else
+            {
+                Console.WriteLine("Note not found.");
+            }
 
             break;
         case MenuChoice.SearchNotes:
