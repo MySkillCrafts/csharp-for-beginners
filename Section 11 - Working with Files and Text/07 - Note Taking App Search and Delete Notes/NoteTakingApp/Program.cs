@@ -101,5 +101,8 @@ while (running)
             }
 
             break;
+        default:
+            Console.WriteLine("Invalid option.");
+            break;
     }
 }

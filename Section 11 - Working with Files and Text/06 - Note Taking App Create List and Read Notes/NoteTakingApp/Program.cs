@@ -72,5 +72,8 @@ while (running)
             break;
         case MenuChoice.DeleteNote:
             break;
+        default:
+            Console.WriteLine("Invalid option.");
+            break;
     }
 }
