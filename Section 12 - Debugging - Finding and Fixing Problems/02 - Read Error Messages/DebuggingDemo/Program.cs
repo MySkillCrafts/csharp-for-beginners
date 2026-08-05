@@ -5,5 +5,10 @@ for (int i = 0; i < names.Length; i++) {
 }
 
 Console.Write("Enter a number: ");
-int number = int.Parse(Console.ReadLine());
-Console.WriteLine(number * 2);
+string? input = Console.ReadLine();
+
+if (int.TryParse(input, out int number)) {
+    Console.WriteLine(number * 2);
+} else {
+    Console.WriteLine("That is not a valid number.");
+}
