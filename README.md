@@ -1,6 +1,6 @@
 # C# for Beginners: Step-by-Step
 
-Official code repository for the Udemy course **C# Programming for Absolute Beginners** by [MySkillCrafts](https://github.com/MySkillCrafts).
+Official code repository for the Udemy course **C# Programming for Absolute Beginners** by [Sergey Boiko](https://github.com/SergeyBoiko).
 
 This repo contains the example projects from the course, organized by section and lesson so you can download the exact code shown in each video.
 
