@@ -1,0 +1,88 @@
+# Teachable: downloadable project snapshots
+
+Completed 2026-10-18T01:28:46.062Z. All 80 ZIP archives from All Projects are attached to the matching lessons with download links visible. 77 uploaded in this batch; 3 already existed. Original names and contents unchanged. Confirmation is from the curriculum editor; files were not downloaded back.
+
+S06-05 contains only README.txt explaining that the project did not change. Section 12 mapped by topic: S12-01 Breakpoints → 67102762; S12-02 Error Messages → 67102763; S12-04 Logic Bugs → 67102764.
+
+| Archive | Lesson | Status |
+| --- | --- | --- |
+| S03-01 - Create the Coffee Calculator Project.zip | [Create the Coffee Calculator Project](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099081) | already_present_download_link_visible |
+| S03-02 - Variables Constants and Comments.zip | [Variables, Constants, and Comments](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099076) | already_present_download_link_visible |
+| S03-03 - Read User Input and Print Output.zip | [Read User Input and Print Output](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099073) | already_present_download_link_visible |
+| S03-04 - Print Variables in the Console.zip | [Print Variables in the Console](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099079) | uploaded_saved_download_link_visible |
+| S03-05 - Strings and String Interpolation.zip | [Strings and String Interpolation](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099078) | uploaded_saved_download_link_visible |
+| S03-06 - Numbers with Decimals float double and decimal.zip | [Numbers with Decimals: float, double, and decimal](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099074) | uploaded_saved_download_link_visible |
+| S03-07 - Making Decisions with if Statements.zip | [Making Decisions with if Statements](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099077) | uploaded_saved_download_link_visible |
+| S03-08 - Handle User Input Safely with TryParse.zip | [Handle User Input Safely with TryParse](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099072) | uploaded_saved_download_link_visible |
+| S03-09 - Combine Conditions with AND and OR.zip | [Combine Conditions with AND and OR](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099075) | uploaded_saved_download_link_visible |
+| S03-10 - Round Prices with Math Methods.zip | [Round Prices with Math Methods](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099082) | uploaded_saved_download_link_visible |
+| S03-11 - Wrapping Up the Coffee Calculator.zip | [Wrapping Up the Coffee Calculator](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67099080) | uploaded_saved_download_link_visible |
+| S04-01 - Store Multiple Values with Arrays.zip | [Store Multiple Values with Arrays](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102424) | uploaded_saved_download_link_visible |
+| S04-02 - Use Lists That Can Grow.zip | [Use Lists That Can Grow](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102425) | uploaded_saved_download_link_visible |
+| S04-03 - Lists with Different Data Types.zip | [Lists with Different Data Types](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102420) | uploaded_saved_download_link_visible |
+| S04-04 - Add and Remove Items from Lists.zip | [Add and Remove Items from Lists](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102416) | uploaded_saved_download_link_visible |
+| S04-05 - Sort and Reverse Lists.zip | [Sort and Reverse Lists](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102417) | uploaded_saved_download_link_visible |
+| S04-06 - Find Items in a List.zip | [Find Items in a List](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102423) | uploaded_saved_download_link_visible |
+| S04-07 - Look Up Values with Dictionaries.zip | [Look Up Values with Dictionaries](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102422) | uploaded_saved_download_link_visible |
+| S04-08 - Check and Update Dictionary Values.zip | [Check and Update Dictionary Values](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102418) | uploaded_saved_download_link_visible |
+| S04-09 - LINQ Basics.zip | [LINQ Basics](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102426) | uploaded_saved_download_link_visible |
+| S04-10 - Filter Sort and Select with LINQ.zip | [Filter, Sort, and Select with LINQ](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102419) | uploaded_saved_download_link_visible |
+| S04-11 - Calculate Averages and Top Results with LINQ.zip | [Calculate Averages and Top Results with LINQ](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102427) | uploaded_saved_download_link_visible |
+| S05-01 - Build a Repeating Menu with a while Loop.zip | [Build a Repeating Menu with a while Loop](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102527) | uploaded_saved_download_link_visible |
+| S05-02 - Why Manual List Access Gets Repetitive.zip | [Why Manual List Access Gets Repetitive](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102532) | uploaded_saved_download_link_visible |
+| S05-03 - Use foreach to Go Through a List.zip | [Use foreach to Go Through a List](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102530) | uploaded_saved_download_link_visible |
+| S05-04 - Use a for Loop When You Need an Index.zip | [Use a for Loop When You Need an Index](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102529) | uploaded_saved_download_link_visible |
+| S05-05 - Add Activities Until the User Stops.zip | [Add Activities Until the User Stops](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102531) | uploaded_saved_download_link_visible |
+| S05-07 - Mark Activities as Done.zip | [Mark Activities as Done](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102533) | uploaded_saved_download_link_visible |
+| S05-08 - Use Break and Continue in a Search.zip | [Use Break and Continue in a Search](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102537) | uploaded_saved_download_link_visible |
+| S05-09 - Build a Weekly View with Nested Loops.zip | [Build a Weekly View with Nested Loops](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102536) | uploaded_saved_download_link_visible |
+| S05-10 - Count Completed and Pending Activities.zip | [Count Completed and Pending Activities](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102528) | uploaded_saved_download_link_visible |
+| S05-11 - Draw a Progress Bar with Loops.zip | [Draw a Progress Bar with Loops](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102534) | uploaded_saved_download_link_visible |
+| S06-02 - Write and Call Your First Method.zip | [Write and Call Your First Method](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102545) | uploaded_saved_download_link_visible |
+| S06-03 - Pass Values into Methods.zip | [Pass Values into Methods](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102548) | uploaded_saved_download_link_visible |
+| S06-04 - Return Values from Methods.zip | [Return Values from Methods](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102543) | uploaded_saved_download_link_visible |
+| S06-05 - Scope Where Variables Live.zip | [Scope: Where Variables Live](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102546) | uploaded_saved_download_link_visible |
+| S06-06 - Use Built in Methods String and Math.zip | [Use Built-in Methods: String and Math](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102542) | uploaded_saved_download_link_visible |
+| S06-07 - Default and Named Arguments.zip | [Default and Named Arguments](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102544) | uploaded_saved_download_link_visible |
+| S06-08 - Refactor the Planner Menu with Methods.zip | [Refactor the Planner Menu with Methods](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102549) | uploaded_saved_download_link_visible |
+| S07-01 - Value Types and Reference Types Copy or Share.zip | [Value Types and Reference Types: Copy or Share?](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102559) | uploaded_saved_download_link_visible |
+| S07-02 - Use Enums for Fixed Choices.zip | [Use Enums for Fixed Choices](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102558) | uploaded_saved_download_link_visible |
+| S07-03 - Type Casting When Types Dont Match.zip | [Type Casting: When Types Don't Match](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102557) | uploaded_saved_download_link_visible |
+| S07-04 - The var Keyword.zip | [The var Keyword](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102556) | uploaded_saved_download_link_visible |
+| S08-01 - What Is OOP Objects vs Classes.zip | [What Is OOP? Objects vs Classes](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102669) | uploaded_saved_download_link_visible |
+| S08-02 - Store Student Objects in a List.zip | [Store Student Objects in a List](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102677) | uploaded_saved_download_link_visible |
+| S08-03 - Protect Data with Properties.zip | [Protect Data with Properties](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102670) | uploaded_saved_download_link_visible |
+| S08-04 - Use Auto Properties.zip | [Use Auto-Properties](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102668) | uploaded_saved_download_link_visible |
+| S08-05 - Create Objects with Constructors.zip | [Create Objects with Constructors](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102673) | uploaded_saved_download_link_visible |
+| S08-06 - Control Access with Public and Private.zip | [Control Access with Public and Private](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102676) | uploaded_saved_download_link_visible |
+| S08-07 - Keep Data and Behavior Together.zip | [Keep Data and Behavior Together](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102675) | uploaded_saved_download_link_visible |
+| S08-08 - Use Static Methods.zip | [Use Static Methods](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102674) | uploaded_saved_download_link_visible |
+| S08-09 - Build the Student Management Menu.zip | [Build the Student Management Menu](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102672) | uploaded_saved_download_link_visible |
+| S08-10 - Add, List, and Count Students.zip | [Add, List, and Count Students](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102671) | uploaded_saved_download_link_visible |
+| S09-01 - Handle Crashes with try catch and finally.zip | [Handle Crashes with try, catch, and finally](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102694) | uploaded_saved_download_link_visible |
+| S09-02 - Project Number Guessing Game with Error Handling.zip | [Project: Number Guessing Game with Error Handling](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102693) | uploaded_saved_download_link_visible |
+| S10-01 - Work with Dates Using DateTime.zip | [Work with Dates Using DateTime](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102700) | uploaded_saved_download_link_visible |
+| S10-02 - Format Dates and Times.zip | [Format Dates and Times](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102696) | uploaded_saved_download_link_visible |
+| S10-03 - Adding and Comparing Dates.zip | [Adding and Comparing Dates](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102701) | uploaded_saved_download_link_visible |
+| S10-04 - Measuring Time with TimeSpan.zip | [Measuring Time with TimeSpan](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102697) | uploaded_saved_download_link_visible |
+| S10-05 - Generating Random Numbers.zip | [Generating Random Numbers](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102699) | uploaded_saved_download_link_visible |
+| S10-06 - Project Birthday Countdown App.zip | [Project: Birthday Countdown App](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102698) | uploaded_saved_download_link_visible |
+| S11-01 - Read and Write Text Files.zip | [Read and Write Text Files](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102729) | uploaded_saved_download_link_visible |
+| S11-02 - Add Text to a File Without Replacing It.zip | [Add Text to a File Without Replacing It](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102724) | uploaded_saved_download_link_visible |
+| S11-03 - Understand File Paths.zip | [Understand File Paths](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102728) | uploaded_saved_download_link_visible |
+| S11-04 - Create Folders and List Files.zip | [Create Folders and List Files](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102726) | uploaded_saved_download_link_visible |
+| S11-05 - Search and Split Text.zip | [Search and Split Text](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102725) | uploaded_saved_download_link_visible |
+| S11-06 - Note Taking App Create List and Read Notes.zip | [Note-Taking App: Create, List, and Read Notes](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102727) | uploaded_saved_download_link_visible |
+| S11-07 - Note Taking App Search and Delete Notes.zip | [Note-Taking App: Search and Delete Notes](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102730) | uploaded_saved_download_link_visible |
+| S12-01 - Use Breakpoints and Step Through Code.zip | [Debug C# Code with Breakpoints and Step Through It](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102762) | uploaded_saved_download_link_visible |
+| S12-02 - Read Error Messages.zip | [Read and Understand C# Error Messages](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102763) | uploaded_saved_download_link_visible |
+| S12-03 - Understand NullReferenceException.zip | [Understand NullReferenceException](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102765) | uploaded_saved_download_link_visible |
+| S12-04 - Find Logic Bugs.zip | [Find and Fix Logic Bugs](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102764) | uploaded_saved_download_link_visible |
+| S13-02 - Create the Flashcard Class.zip | [Create the Flashcard Class](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102769) | uploaded_saved_download_link_visible |
+| S13-03 - Save One Flashcard as Text.zip | [Save One Flashcard as Text](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102768) | uploaded_saved_download_link_visible |
+| S13-04 - Build the App Menu.zip | [Build the App Menu](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102772) | uploaded_saved_download_link_visible |
+| S13-05 - Add and Save New Flashcards.zip | [Add and Save New Flashcards](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102773) | uploaded_saved_download_link_visible |
+| S13-06 - Load and View All Flashcards.zip | [Load and View All Flashcards](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102771) | uploaded_saved_download_link_visible |
+| S13-07 - Build Study Mode.zip | [Build Study Mode](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102770) | uploaded_saved_download_link_visible |
+| S13-08 - Build Quiz Mode with Random Cards.zip | [Build Quiz Mode with Random Cards](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102767) | uploaded_saved_download_link_visible |
+| S13-09 - Polish and Wrap Up the Flashcard Trainer.zip | [Polish and Wrap Up the Flashcard Trainer](https://sergeyboiko.teachable.com/admin-app/courses/3041357/curriculum/lessons/67102775) | uploaded_saved_download_link_visible |

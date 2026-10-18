@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-18T01:00:00.500Z",
+  "courseId": "3041357",
+  "naming": "Keep existing Sxx-yy - Lesson Title.zip names; Windows-safe; originals unchanged.",
+  "pilot": [
+    {
+      "lessonId": "67099081",
+      "title": "Create the Coffee Calculator Project",
+      "file": "S03-01 - Create the Coffee Calculator Project.zip",
+      "status": "already_present_download_link_visible"
+    },
+    {
+      "lessonId": "67099076",
+      "title": "Variables, Constants, and Comments",
+      "file": "S03-02 - Variables Constants and Comments.zip",
+      "status": "already_present_download_link_visible"
+    },
+    {
+      "lessonId": "67099073",
+      "title": "Read User Input and Print Output",
+      "file": "S03-03 - Read User Input and Print Output.zip",
+      "status": "uploaded_saved_download_link_visible",
+      "uploadedAt": "2026-10-18T01:02:20.225Z"
+    }
+  ],
+  "issues": [
+    {
+      "lessonId": "67099076",
+      "file": "S03-03 - Read User Input and Print Output.zip",
+      "issue": "Also present in second lesson, appears mapped to wrong lesson; left unchanged.",
+      "resolution": "User reports removing misplaced S03-03 from second lesson. S03-03 now uploaded to matching third lesson."
+    }
+  ],
+  "uploadsThisRun": 1,
+  "workflow": [
+    "Open mapped lesson",
+    "Check for existing matching RESOURCE block",
+    "Add content",
+    "Resource",
+    "browse files",
+    "Select exactly the mapped ZIP",
+    "Upload",
+    "Confirm RESOURCE filename and Download link visible"
+  ],
+  "scope": "Only first two archives inspected; no bulk upload authorized or executed."
+}

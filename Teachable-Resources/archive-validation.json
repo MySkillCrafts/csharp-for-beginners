@@ -1,0 +1,562 @@
+[
+  {
+    "File": "S03-01 - Create the Coffee Calculator Project.zip",
+    "Entries": 3,
+    "Uncompressed": 1562.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-02 - Variables Constants and Comments.zip",
+    "Entries": 3,
+    "Uncompressed": 1607.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-03 - Read User Input and Print Output.zip",
+    "Entries": 3,
+    "Uncompressed": 2089.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-04 - Print Variables in the Console.zip",
+    "Entries": 3,
+    "Uncompressed": 2089.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-05 - Strings and String Interpolation.zip",
+    "Entries": 3,
+    "Uncompressed": 2075.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-06 - Numbers with Decimals float double and decimal.zip",
+    "Entries": 3,
+    "Uncompressed": 2244.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-07 - Making Decisions with if Statements.zip",
+    "Entries": 3,
+    "Uncompressed": 2512.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-08 - Handle User Input Safely with TryParse.zip",
+    "Entries": 3,
+    "Uncompressed": 2717.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-09 - Combine Conditions with AND and OR.zip",
+    "Entries": 3,
+    "Uncompressed": 2874.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-10 - Round Prices with Math Methods.zip",
+    "Entries": 3,
+    "Uncompressed": 3668.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S03-11 - Wrapping Up the Coffee Calculator.zip",
+    "Entries": 3,
+    "Uncompressed": 3365.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-01 - Store Multiple Values with Arrays.zip",
+    "Entries": 3,
+    "Uncompressed": 1694.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-02 - Use Lists That Can Grow.zip",
+    "Entries": 3,
+    "Uncompressed": 2276.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-03 - Lists with Different Data Types.zip",
+    "Entries": 3,
+    "Uncompressed": 2163.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-04 - Add and Remove Items from Lists.zip",
+    "Entries": 3,
+    "Uncompressed": 1995.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-05 - Sort and Reverse Lists.zip",
+    "Entries": 3,
+    "Uncompressed": 2102.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-06 - Find Items in a List.zip",
+    "Entries": 3,
+    "Uncompressed": 2346.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-07 - Look Up Values with Dictionaries.zip",
+    "Entries": 3,
+    "Uncompressed": 1894.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-08 - Check and Update Dictionary Values.zip",
+    "Entries": 3,
+    "Uncompressed": 2162.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-09 - LINQ Basics.zip",
+    "Entries": 3,
+    "Uncompressed": 2134.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-10 - Filter Sort and Select with LINQ.zip",
+    "Entries": 3,
+    "Uncompressed": 2109.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S04-11 - Calculate Averages and Top Results with LINQ.zip",
+    "Entries": 3,
+    "Uncompressed": 2704.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-01 - Build a Repeating Menu with a while Loop.zip",
+    "Entries": 3,
+    "Uncompressed": 801.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-02 - Why Manual List Access Gets Repetitive.zip",
+    "Entries": 3,
+    "Uncompressed": 1398.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-03 - Use foreach to Go Through a List.zip",
+    "Entries": 3,
+    "Uncompressed": 1762.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-04 - Use a for Loop When You Need an Index.zip",
+    "Entries": 3,
+    "Uncompressed": 2083.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-05 - Add Activities Until the User Stops.zip",
+    "Entries": 3,
+    "Uncompressed": 2535.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-07 - Mark Activities as Done.zip",
+    "Entries": 3,
+    "Uncompressed": 4082.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-08 - Use Break and Continue in a Search.zip",
+    "Entries": 3,
+    "Uncompressed": 5599.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-09 - Build a Weekly View with Nested Loops.zip",
+    "Entries": 3,
+    "Uncompressed": 6735.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-10 - Count Completed and Pending Activities.zip",
+    "Entries": 3,
+    "Uncompressed": 7661.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S05-11 - Draw a Progress Bar with Loops.zip",
+    "Entries": 3,
+    "Uncompressed": 8691.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-02 - Write and Call Your First Method.zip",
+    "Entries": 3,
+    "Uncompressed": 1313.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-03 - Pass Values into Methods.zip",
+    "Entries": 3,
+    "Uncompressed": 1645.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-04 - Return Values from Methods.zip",
+    "Entries": 3,
+    "Uncompressed": 2476.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-05 - Scope Where Variables Live.zip",
+    "Entries": 1,
+    "Uncompressed": 57.0,
+    "CodeFiles": 0,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-06 - Use Built in Methods String and Math.zip",
+    "Entries": 3,
+    "Uncompressed": 2766.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-07 - Default and Named Arguments.zip",
+    "Entries": 3,
+    "Uncompressed": 3023.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S06-08 - Refactor the Planner Menu with Methods.zip",
+    "Entries": 3,
+    "Uncompressed": 8781.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S07-01 - Value Types and Reference Types Copy or Share.zip",
+    "Entries": 3,
+    "Uncompressed": 921.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S07-02 - Use Enums for Fixed Choices.zip",
+    "Entries": 4,
+    "Uncompressed": 834.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S07-03 - Type Casting When Types Dont Match.zip",
+    "Entries": 4,
+    "Uncompressed": 886.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S07-04 - The var Keyword.zip",
+    "Entries": 4,
+    "Uncompressed": 833.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-01 - What Is OOP Objects vs Classes.zip",
+    "Entries": 4,
+    "Uncompressed": 848.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-02 - Store Student Objects in a List.zip",
+    "Entries": 4,
+    "Uncompressed": 997.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-03 - Protect Data with Properties.zip",
+    "Entries": 4,
+    "Uncompressed": 1333.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-04 - Use Auto Properties.zip",
+    "Entries": 4,
+    "Uncompressed": 1207.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-05 - Create Objects with Constructors.zip",
+    "Entries": 4,
+    "Uncompressed": 1306.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-06 - Control Access with Public and Private.zip",
+    "Entries": 4,
+    "Uncompressed": 1306.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-07 - Keep Data and Behavior Together.zip",
+    "Entries": 4,
+    "Uncompressed": 1673.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-08 - Use Static Methods.zip",
+    "Entries": 4,
+    "Uncompressed": 1892.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-09 - Build the Student Management Menu.zip",
+    "Entries": 5,
+    "Uncompressed": 3189.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S08-10 - Add, List, and Count Students.zip",
+    "Entries": 5,
+    "Uncompressed": 4214.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S09-01 - Handle Crashes with try catch and finally.zip",
+    "Entries": 3,
+    "Uncompressed": 507.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S09-02 - Project Number Guessing Game with Error Handling.zip",
+    "Entries": 3,
+    "Uncompressed": 507.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-01 - Work with Dates Using DateTime.zip",
+    "Entries": 3,
+    "Uncompressed": 722.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-02 - Format Dates and Times.zip",
+    "Entries": 3,
+    "Uncompressed": 923.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-03 - Adding and Comparing Dates.zip",
+    "Entries": 3,
+    "Uncompressed": 819.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-04 - Measuring Time with TimeSpan.zip",
+    "Entries": 3,
+    "Uncompressed": 742.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-05 - Generating Random Numbers.zip",
+    "Entries": 3,
+    "Uncompressed": 681.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S10-06 - Project Birthday Countdown App.zip",
+    "Entries": 3,
+    "Uncompressed": 1599.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-01 - Read and Write Text Files.zip",
+    "Entries": 3,
+    "Uncompressed": 651.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-02 - Add Text to a File Without Replacing It.zip",
+    "Entries": 3,
+    "Uncompressed": 728.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-03 - Understand File Paths.zip",
+    "Entries": 3,
+    "Uncompressed": 712.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-04 - Create Folders and List Files.zip",
+    "Entries": 3,
+    "Uncompressed": 857.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-05 - Search and Split Text.zip",
+    "Entries": 3,
+    "Uncompressed": 655.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-06 - Note Taking App Create List and Read Notes.zip",
+    "Entries": 4,
+    "Uncompressed": 2706.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S11-07 - Note Taking App Search and Delete Notes.zip",
+    "Entries": 4,
+    "Uncompressed": 3709.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S12-01 - Use Breakpoints and Step Through Code.zip",
+    "Entries": 3,
+    "Uncompressed": 530.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S12-02 - Read Error Messages.zip",
+    "Entries": 3,
+    "Uncompressed": 658.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S12-03 - Understand NullReferenceException.zip",
+    "Entries": 4,
+    "Uncompressed": 518.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S12-04 - Find Logic Bugs.zip",
+    "Entries": 3,
+    "Uncompressed": 1061.0,
+    "CodeFiles": 2,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-02 - Create the Flashcard Class.zip",
+    "Entries": 4,
+    "Uncompressed": 982.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-03 - Save One Flashcard as Text.zip",
+    "Entries": 4,
+    "Uncompressed": 1423.0,
+    "CodeFiles": 3,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-04 - Build the App Menu.zip",
+    "Entries": 5,
+    "Uncompressed": 2692.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-05 - Add and Save New Flashcards.zip",
+    "Entries": 5,
+    "Uncompressed": 3844.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-06 - Load and View All Flashcards.zip",
+    "Entries": 5,
+    "Uncompressed": 4268.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-07 - Build Study Mode.zip",
+    "Entries": 5,
+    "Uncompressed": 5167.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-08 - Build Quiz Mode with Random Cards.zip",
+    "Entries": 5,
+    "Uncompressed": 6248.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  },
+  {
+    "File": "S13-09 - Polish and Wrap Up the Flashcard Trainer.zip",
+    "Entries": 5,
+    "Uncompressed": 6429.0,
+    "CodeFiles": 4,
+    "Unsafe": 0
+  }
+]

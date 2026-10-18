@@ -1,0 +1,742 @@
+{
+  "courseId": "3041357",
+  "sourceFolder": "C:/Files/UDEMY/csharp-for-beginners/All Projects",
+  "updatedAt": "2026-10-18T01:28:46.062Z",
+  "items": [
+    {
+      "file": "S03-01 - Create the Coffee Calculator Project.zip",
+      "section": 3,
+      "lessonNumber": 1,
+      "lessonId": "67099081",
+      "title": "Create the Coffee Calculator Project",
+      "status": "already_present_download_link_visible",
+      "confirmedAt": "2026-10-18T01:06:02.851Z"
+    },
+    {
+      "file": "S03-02 - Variables Constants and Comments.zip",
+      "section": 3,
+      "lessonNumber": 2,
+      "lessonId": "67099076",
+      "title": "Variables, Constants, and Comments",
+      "status": "already_present_download_link_visible",
+      "confirmedAt": "2026-10-18T01:06:05.903Z"
+    },
+    {
+      "file": "S03-03 - Read User Input and Print Output.zip",
+      "section": 3,
+      "lessonNumber": 3,
+      "lessonId": "67099073",
+      "title": "Read User Input and Print Output",
+      "status": "already_present_download_link_visible",
+      "confirmedAt": "2026-10-18T01:06:19.369Z"
+    },
+    {
+      "file": "S03-04 - Print Variables in the Console.zip",
+      "section": 3,
+      "lessonNumber": 4,
+      "lessonId": "67099079",
+      "title": "Print Variables in the Console",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:06:35.603Z"
+    },
+    {
+      "file": "S03-05 - Strings and String Interpolation.zip",
+      "section": 3,
+      "lessonNumber": 5,
+      "lessonId": "67099078",
+      "title": "Strings and String Interpolation",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:06:52.062Z"
+    },
+    {
+      "file": "S03-06 - Numbers with Decimals float double and decimal.zip",
+      "section": 3,
+      "lessonNumber": 6,
+      "lessonId": "67099074",
+      "title": "Numbers with Decimals: float, double, and decimal",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:07:10.699Z"
+    },
+    {
+      "file": "S03-07 - Making Decisions with if Statements.zip",
+      "section": 3,
+      "lessonNumber": 7,
+      "lessonId": "67099077",
+      "title": "Making Decisions with if Statements",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:07:27.162Z"
+    },
+    {
+      "file": "S03-08 - Handle User Input Safely with TryParse.zip",
+      "section": 3,
+      "lessonNumber": 8,
+      "lessonId": "67099072",
+      "title": "Handle User Input Safely with TryParse",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:07:43.963Z"
+    },
+    {
+      "file": "S03-09 - Combine Conditions with AND and OR.zip",
+      "section": 3,
+      "lessonNumber": 9,
+      "lessonId": "67099075",
+      "title": "Combine Conditions with AND and OR",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:08:03.962Z"
+    },
+    {
+      "file": "S03-10 - Round Prices with Math Methods.zip",
+      "section": 3,
+      "lessonNumber": 10,
+      "lessonId": "67099082",
+      "title": "Round Prices with Math Methods",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:08:21.771Z"
+    },
+    {
+      "file": "S03-11 - Wrapping Up the Coffee Calculator.zip",
+      "section": 3,
+      "lessonNumber": 11,
+      "lessonId": "67099080",
+      "title": "Wrapping Up the Coffee Calculator",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:08:35.950Z"
+    },
+    {
+      "file": "S04-01 - Store Multiple Values with Arrays.zip",
+      "section": 4,
+      "lessonNumber": 1,
+      "lessonId": "67102424",
+      "title": "Store Multiple Values with Arrays",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:08:56.224Z"
+    },
+    {
+      "file": "S04-02 - Use Lists That Can Grow.zip",
+      "section": 4,
+      "lessonNumber": 2,
+      "lessonId": "67102425",
+      "title": "Use Lists That Can Grow",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:09:13.040Z"
+    },
+    {
+      "file": "S04-03 - Lists with Different Data Types.zip",
+      "section": 4,
+      "lessonNumber": 3,
+      "lessonId": "67102420",
+      "title": "Lists with Different Data Types",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:09:29.971Z"
+    },
+    {
+      "file": "S04-04 - Add and Remove Items from Lists.zip",
+      "section": 4,
+      "lessonNumber": 4,
+      "lessonId": "67102416",
+      "title": "Add and Remove Items from Lists",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:09:52.900Z"
+    },
+    {
+      "file": "S04-05 - Sort and Reverse Lists.zip",
+      "section": 4,
+      "lessonNumber": 5,
+      "lessonId": "67102417",
+      "title": "Sort and Reverse Lists",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:10:09.954Z"
+    },
+    {
+      "file": "S04-06 - Find Items in a List.zip",
+      "section": 4,
+      "lessonNumber": 6,
+      "lessonId": "67102423",
+      "title": "Find Items in a List",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:10:27.432Z"
+    },
+    {
+      "file": "S04-07 - Look Up Values with Dictionaries.zip",
+      "section": 4,
+      "lessonNumber": 7,
+      "lessonId": "67102422",
+      "title": "Look Up Values with Dictionaries",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:10:50.439Z"
+    },
+    {
+      "file": "S04-08 - Check and Update Dictionary Values.zip",
+      "section": 4,
+      "lessonNumber": 8,
+      "lessonId": "67102418",
+      "title": "Check and Update Dictionary Values",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:11:07.349Z"
+    },
+    {
+      "file": "S04-09 - LINQ Basics.zip",
+      "section": 4,
+      "lessonNumber": 9,
+      "lessonId": "67102426",
+      "title": "LINQ Basics",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:11:21.425Z"
+    },
+    {
+      "file": "S04-10 - Filter Sort and Select with LINQ.zip",
+      "section": 4,
+      "lessonNumber": 10,
+      "lessonId": "67102419",
+      "title": "Filter, Sort, and Select with LINQ",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:11:38.179Z"
+    },
+    {
+      "file": "S04-11 - Calculate Averages and Top Results with LINQ.zip",
+      "section": 4,
+      "lessonNumber": 11,
+      "lessonId": "67102427",
+      "title": "Calculate Averages and Top Results with LINQ",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:11:52.692Z"
+    },
+    {
+      "file": "S05-01 - Build a Repeating Menu with a while Loop.zip",
+      "section": 5,
+      "lessonNumber": 1,
+      "lessonId": "67102527",
+      "title": "Build a Repeating Menu with a while Loop",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:12:09.521Z"
+    },
+    {
+      "file": "S05-02 - Why Manual List Access Gets Repetitive.zip",
+      "section": 5,
+      "lessonNumber": 2,
+      "lessonId": "67102532",
+      "title": "Why Manual List Access Gets Repetitive",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:12:29.667Z"
+    },
+    {
+      "file": "S05-03 - Use foreach to Go Through a List.zip",
+      "section": 5,
+      "lessonNumber": 3,
+      "lessonId": "67102530",
+      "title": "Use foreach to Go Through a List",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:12:46.407Z"
+    },
+    {
+      "file": "S05-04 - Use a for Loop When You Need an Index.zip",
+      "section": 5,
+      "lessonNumber": 4,
+      "lessonId": "67102529",
+      "title": "Use a for Loop When You Need an Index",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:13:03.320Z"
+    },
+    {
+      "file": "S05-05 - Add Activities Until the User Stops.zip",
+      "section": 5,
+      "lessonNumber": 5,
+      "lessonId": "67102531",
+      "title": "Add Activities Until the User Stops",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:13:23.838Z"
+    },
+    {
+      "file": "S05-07 - Mark Activities as Done.zip",
+      "section": 5,
+      "lessonNumber": 7,
+      "lessonId": "67102533",
+      "title": "Mark Activities as Done",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:13:40.010Z"
+    },
+    {
+      "file": "S05-08 - Use Break and Continue in a Search.zip",
+      "section": 5,
+      "lessonNumber": 8,
+      "lessonId": "67102537",
+      "title": "Use Break and Continue in a Search",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:13:56.658Z"
+    },
+    {
+      "file": "S05-09 - Build a Weekly View with Nested Loops.zip",
+      "section": 5,
+      "lessonNumber": 9,
+      "lessonId": "67102536",
+      "title": "Build a Weekly View with Nested Loops",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:14:13.656Z"
+    },
+    {
+      "file": "S05-10 - Count Completed and Pending Activities.zip",
+      "section": 5,
+      "lessonNumber": 10,
+      "lessonId": "67102528",
+      "title": "Count Completed and Pending Activities",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:14:30.021Z"
+    },
+    {
+      "file": "S05-11 - Draw a Progress Bar with Loops.zip",
+      "section": 5,
+      "lessonNumber": 11,
+      "lessonId": "67102534",
+      "title": "Draw a Progress Bar with Loops",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:14:46.525Z"
+    },
+    {
+      "file": "S06-02 - Write and Call Your First Method.zip",
+      "section": 6,
+      "lessonNumber": 2,
+      "lessonId": "67102545",
+      "title": "Write and Call Your First Method",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:15:05.700Z"
+    },
+    {
+      "file": "S06-03 - Pass Values into Methods.zip",
+      "section": 6,
+      "lessonNumber": 3,
+      "lessonId": "67102548",
+      "title": "Pass Values into Methods",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:15:23.395Z"
+    },
+    {
+      "file": "S06-04 - Return Values from Methods.zip",
+      "section": 6,
+      "lessonNumber": 4,
+      "lessonId": "67102543",
+      "title": "Return Values from Methods",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:15:39.727Z"
+    },
+    {
+      "file": "S06-05 - Scope Where Variables Live.zip",
+      "section": 6,
+      "lessonNumber": 5,
+      "lessonId": "67102546",
+      "title": "Scope: Where Variables Live",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:15:59.755Z"
+    },
+    {
+      "file": "S06-06 - Use Built in Methods String and Math.zip",
+      "section": 6,
+      "lessonNumber": 6,
+      "lessonId": "67102542",
+      "title": "Use Built-in Methods: String and Math",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:16:16.654Z"
+    },
+    {
+      "file": "S06-07 - Default and Named Arguments.zip",
+      "section": 6,
+      "lessonNumber": 7,
+      "lessonId": "67102544",
+      "title": "Default and Named Arguments",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:16:33.535Z"
+    },
+    {
+      "file": "S06-08 - Refactor the Planner Menu with Methods.zip",
+      "section": 6,
+      "lessonNumber": 8,
+      "lessonId": "67102549",
+      "title": "Refactor the Planner Menu with Methods",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:16:53.506Z"
+    },
+    {
+      "file": "S07-01 - Value Types and Reference Types Copy or Share.zip",
+      "section": 7,
+      "lessonNumber": 1,
+      "lessonId": "67102559",
+      "title": "Value Types and Reference Types: Copy or Share?",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:17:09.619Z"
+    },
+    {
+      "file": "S07-02 - Use Enums for Fixed Choices.zip",
+      "section": 7,
+      "lessonNumber": 2,
+      "lessonId": "67102558",
+      "title": "Use Enums for Fixed Choices",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:17:26.610Z"
+    },
+    {
+      "file": "S07-03 - Type Casting When Types Dont Match.zip",
+      "section": 7,
+      "lessonNumber": 3,
+      "lessonId": "67102557",
+      "title": "Type Casting: When Types Don't Match",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:17:46.542Z"
+    },
+    {
+      "file": "S07-04 - The var Keyword.zip",
+      "section": 7,
+      "lessonNumber": 4,
+      "lessonId": "67102556",
+      "title": "The var Keyword",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:18:02.946Z"
+    },
+    {
+      "file": "S08-01 - What Is OOP Objects vs Classes.zip",
+      "section": 8,
+      "lessonNumber": 1,
+      "lessonId": "67102669",
+      "title": "What Is OOP? Objects vs Classes",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:18:19.481Z"
+    },
+    {
+      "file": "S08-02 - Store Student Objects in a List.zip",
+      "section": 8,
+      "lessonNumber": 2,
+      "lessonId": "67102677",
+      "title": "Store Student Objects in a List",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:18:39.763Z"
+    },
+    {
+      "file": "S08-03 - Protect Data with Properties.zip",
+      "section": 8,
+      "lessonNumber": 3,
+      "lessonId": "67102670",
+      "title": "Protect Data with Properties",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:18:56.491Z"
+    },
+    {
+      "file": "S08-04 - Use Auto Properties.zip",
+      "section": 8,
+      "lessonNumber": 4,
+      "lessonId": "67102668",
+      "title": "Use Auto-Properties",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:19:13.082Z"
+    },
+    {
+      "file": "S08-05 - Create Objects with Constructors.zip",
+      "section": 8,
+      "lessonNumber": 5,
+      "lessonId": "67102673",
+      "title": "Create Objects with Constructors",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:19:33.940Z"
+    },
+    {
+      "file": "S08-06 - Control Access with Public and Private.zip",
+      "section": 8,
+      "lessonNumber": 6,
+      "lessonId": "67102676",
+      "title": "Control Access with Public and Private",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:19:50.436Z"
+    },
+    {
+      "file": "S08-07 - Keep Data and Behavior Together.zip",
+      "section": 8,
+      "lessonNumber": 7,
+      "lessonId": "67102675",
+      "title": "Keep Data and Behavior Together",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:20:06.868Z"
+    },
+    {
+      "file": "S08-08 - Use Static Methods.zip",
+      "section": 8,
+      "lessonNumber": 8,
+      "lessonId": "67102674",
+      "title": "Use Static Methods",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:20:27.203Z"
+    },
+    {
+      "file": "S08-09 - Build the Student Management Menu.zip",
+      "section": 8,
+      "lessonNumber": 9,
+      "lessonId": "67102672",
+      "title": "Build the Student Management Menu",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:20:43.352Z"
+    },
+    {
+      "file": "S08-10 - Add, List, and Count Students.zip",
+      "section": 8,
+      "lessonNumber": 10,
+      "lessonId": "67102671",
+      "title": "Add, List, and Count Students",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:20:50.266Z"
+    },
+    {
+      "file": "S09-01 - Handle Crashes with try catch and finally.zip",
+      "section": 9,
+      "lessonNumber": 1,
+      "lessonId": "67102694",
+      "title": "Handle Crashes with try, catch, and finally",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:21:09.778Z"
+    },
+    {
+      "file": "S09-02 - Project Number Guessing Game with Error Handling.zip",
+      "section": 9,
+      "lessonNumber": 2,
+      "lessonId": "67102693",
+      "title": "Project: Number Guessing Game with Error Handling",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:21:26.621Z"
+    },
+    {
+      "file": "S10-01 - Work with Dates Using DateTime.zip",
+      "section": 10,
+      "lessonNumber": 1,
+      "lessonId": "67102700",
+      "title": "Work with Dates Using DateTime",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:21:43.064Z"
+    },
+    {
+      "file": "S10-02 - Format Dates and Times.zip",
+      "section": 10,
+      "lessonNumber": 2,
+      "lessonId": "67102696",
+      "title": "Format Dates and Times",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:22:02.373Z"
+    },
+    {
+      "file": "S10-03 - Adding and Comparing Dates.zip",
+      "section": 10,
+      "lessonNumber": 3,
+      "lessonId": "67102701",
+      "title": "Adding and Comparing Dates",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:22:18.424Z"
+    },
+    {
+      "file": "S10-04 - Measuring Time with TimeSpan.zip",
+      "section": 10,
+      "lessonNumber": 4,
+      "lessonId": "67102697",
+      "title": "Measuring Time with TimeSpan",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:22:35.797Z"
+    },
+    {
+      "file": "S10-05 - Generating Random Numbers.zip",
+      "section": 10,
+      "lessonNumber": 5,
+      "lessonId": "67102699",
+      "title": "Generating Random Numbers",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:22:55.283Z"
+    },
+    {
+      "file": "S10-06 - Project Birthday Countdown App.zip",
+      "section": 10,
+      "lessonNumber": 6,
+      "lessonId": "67102698",
+      "title": "Project: Birthday Countdown App",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:23:11.511Z"
+    },
+    {
+      "file": "S11-01 - Read and Write Text Files.zip",
+      "section": 11,
+      "lessonNumber": 1,
+      "lessonId": "67102729",
+      "title": "Read and Write Text Files",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:23:27.999Z"
+    },
+    {
+      "file": "S11-02 - Add Text to a File Without Replacing It.zip",
+      "section": 11,
+      "lessonNumber": 2,
+      "lessonId": "67102724",
+      "title": "Add Text to a File Without Replacing It",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:23:47.285Z"
+    },
+    {
+      "file": "S11-03 - Understand File Paths.zip",
+      "section": 11,
+      "lessonNumber": 3,
+      "lessonId": "67102728",
+      "title": "Understand File Paths",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:24:03.607Z"
+    },
+    {
+      "file": "S11-04 - Create Folders and List Files.zip",
+      "section": 11,
+      "lessonNumber": 4,
+      "lessonId": "67102726",
+      "title": "Create Folders and List Files",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:24:20.076Z"
+    },
+    {
+      "file": "S11-05 - Search and Split Text.zip",
+      "section": 11,
+      "lessonNumber": 5,
+      "lessonId": "67102725",
+      "title": "Search and Split Text",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:24:39.946Z"
+    },
+    {
+      "file": "S11-06 - Note Taking App Create List and Read Notes.zip",
+      "section": 11,
+      "lessonNumber": 6,
+      "lessonId": "67102727",
+      "title": "Note-Taking App: Create, List, and Read Notes",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:24:56.520Z"
+    },
+    {
+      "file": "S11-07 - Note Taking App Search and Delete Notes.zip",
+      "section": 11,
+      "lessonNumber": 7,
+      "lessonId": "67102730",
+      "title": "Note-Taking App: Search and Delete Notes",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:25:10.242Z"
+    },
+    {
+      "file": "S12-01 - Use Breakpoints and Step Through Code.zip",
+      "section": 12,
+      "lessonNumber": 1,
+      "lessonId": "67102762",
+      "title": "Debug C# Code with Breakpoints and Step Through It",
+      "status": "uploaded_saved_download_link_visible",
+      "mappingNote": "Title expanded in Teachable; matched by topic and section, not curriculum order.",
+      "confirmedAt": "2026-10-18T01:25:30.107Z"
+    },
+    {
+      "file": "S12-02 - Read Error Messages.zip",
+      "section": 12,
+      "lessonNumber": 2,
+      "lessonId": "67102763",
+      "title": "Read and Understand C# Error Messages",
+      "status": "uploaded_saved_download_link_visible",
+      "mappingNote": "Title expanded in Teachable; matched by topic and section, not curriculum order.",
+      "confirmedAt": "2026-10-18T01:25:46.671Z"
+    },
+    {
+      "file": "S12-03 - Understand NullReferenceException.zip",
+      "section": 12,
+      "lessonNumber": 3,
+      "lessonId": "67102765",
+      "title": "Understand NullReferenceException",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:26:03.383Z"
+    },
+    {
+      "file": "S12-04 - Find Logic Bugs.zip",
+      "section": 12,
+      "lessonNumber": 4,
+      "lessonId": "67102764",
+      "title": "Find and Fix Logic Bugs",
+      "status": "uploaded_saved_download_link_visible",
+      "mappingNote": "Title expanded in Teachable; matched by topic and section, not curriculum order.",
+      "confirmedAt": "2026-10-18T01:26:23.109Z"
+    },
+    {
+      "file": "S13-02 - Create the Flashcard Class.zip",
+      "section": 13,
+      "lessonNumber": 2,
+      "lessonId": "67102769",
+      "title": "Create the Flashcard Class",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:26:39.874Z"
+    },
+    {
+      "file": "S13-03 - Save One Flashcard as Text.zip",
+      "section": 13,
+      "lessonNumber": 3,
+      "lessonId": "67102768",
+      "title": "Save One Flashcard as Text",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:26:53.669Z"
+    },
+    {
+      "file": "S13-04 - Build the App Menu.zip",
+      "section": 13,
+      "lessonNumber": 4,
+      "lessonId": "67102772",
+      "title": "Build the App Menu",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:27:15.828Z"
+    },
+    {
+      "file": "S13-05 - Add and Save New Flashcards.zip",
+      "section": 13,
+      "lessonNumber": 5,
+      "lessonId": "67102773",
+      "title": "Add and Save New Flashcards",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:27:33.148Z"
+    },
+    {
+      "file": "S13-06 - Load and View All Flashcards.zip",
+      "section": 13,
+      "lessonNumber": 6,
+      "lessonId": "67102771",
+      "title": "Load and View All Flashcards",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:27:49.661Z"
+    },
+    {
+      "file": "S13-07 - Build Study Mode.zip",
+      "section": 13,
+      "lessonNumber": 7,
+      "lessonId": "67102770",
+      "title": "Build Study Mode",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:28:06.379Z"
+    },
+    {
+      "file": "S13-08 - Build Quiz Mode with Random Cards.zip",
+      "section": 13,
+      "lessonNumber": 8,
+      "lessonId": "67102767",
+      "title": "Build Quiz Mode with Random Cards",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:28:22.627Z"
+    },
+    {
+      "file": "S13-09 - Polish and Wrap Up the Flashcard Trainer.zip",
+      "section": 13,
+      "lessonNumber": 9,
+      "lessonId": "67102775",
+      "title": "Polish and Wrap Up the Flashcard Trainer",
+      "status": "uploaded_saved_download_link_visible",
+      "confirmedAt": "2026-10-18T01:28:39.002Z"
+    }
+  ],
+  "notes": [
+    "Original ZIP names and contents unchanged.",
+    "S06-05 contains only README: no project changes in this lesson.",
+    "S12 titles mapped explicitly because Teachable titles expanded."
+  ],
+  "completedAt": "2026-10-18T01:28:46.062Z",
+  "counts": {
+    "total": 80,
+    "newUploads": 77,
+    "existing": 3,
+    "pending": 0
+  }
+}
